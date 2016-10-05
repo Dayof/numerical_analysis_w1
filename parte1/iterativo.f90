@@ -2,32 +2,37 @@ program iterativo
 
     implicit none
 
-    real :: lambda, x=100, xn
+    double precision :: lambda, x=100, xn=0.2
 
-    read(*,*) lambda, xn
-
-    do while(abs(xn - x) .gt. 0.00001)
-        x = xn
-        xn = f(x)
-        write(*,*) xn
-    end do
+    read(*,*) lambda
 
     ! Write data in output file
     open(unit=1, file="iterativo.dat", status="unknown", action="write")
 
+        do lambda=0.4, 3, 0.5
+            x = 100
+            xn = 0.2
 
+            do while(abs(xn - x) .gt. 0.0000001)
+                x = xn
+                xn = f(x, lambda)
+            end do
+
+            write(1, *) x, lambda
+
+        end do
 
     close(unit=1)
 
 contains
 
-    function f(x)
+    function f(x, l)
 
         implicit none
 
-        real :: f, x
+        double precision :: f, x, l
 
-        f = lambda * (x - x*x)
+        f = l * (x - x*x)
 
         return
     end function f
