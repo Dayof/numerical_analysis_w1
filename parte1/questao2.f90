@@ -1,4 +1,4 @@
-program iterativo
+program questao2
 
     implicit none
 
