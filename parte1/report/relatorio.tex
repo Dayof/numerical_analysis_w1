@@ -75,9 +75,30 @@ Determine analiticamente pontos fixos $x^{*}$ do mapa logístico, Equação~\ref
 \textbf{Resolução:}
 A partir do processo iterativo descrito na Equação~\ref{eq:parte1} é possível achar os pontos fixos $x^{*}$ analisando as raízes do sistema:
 
-\begin{equation}
-x^{*} = \lambda x^{*} (1 - x^{*})
-\end{equation}
+\begin{eqnarray}
+x^{*} = \lambda x^{*} (1 - x^{*}) \nonumber \\
+\lambda x^{*} -  \lambda x^{*^{2}} - x^{*} = 0 \\
+x^{*} (\lambda - \lambda x^{*} - 1) = 0 \nonumber 
+\label{eq:pto1}
+\end{eqnarray}
+
+Pela Equação~\ref{eq:pto1} temos o ponto fixo $x^{*} = 0$. Agora quando $x^{*} \neq 0$:
+
+\begin{eqnarray}
+\lambda - \lambda x^{*} - 1 = 0 \nonumber \\
+- x^{*} = \frac{1 - \lambda}{\lambda} \\
+x^{*} = \frac{\lambda - 1}{\lambda} \nonumber
+\label{eq:pto2}
+\end{eqnarray}
+
+Pela Equação~\ref{eq:pto2} temos o ponto fixo $x^{*} = \frac{\lambda - 1}{\lambda}$.
+
+Para que a Equação~\ref{eq:parte1} do processo iterativo do mapa logístico tenha pontos fixos assintoticamente estáveis é necessário que a condição da dicotomia na Equação~\ref{eq:pto2} seja válida para todos os pontos fixos do sistema.
+
+\begin{eqnarray}
+\left| g(x^{*})' \right| < 1
+\label{eq:assest}
+\end{eqnarray}
 
 \subsection*{Questão 2}
 \label{sec:p1q2}
