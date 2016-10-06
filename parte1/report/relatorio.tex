@@ -57,15 +57,32 @@ Solução de equações não-lineares}
 Esta primeira questão será sobre as bifurcações do mapa logístico. Considere o processo iterativo da Equação~\ref{eq:parte1}, chamado de \textit{mapa logístico}. Este processo iterativo, apesar de aparentar ser bastante simples, tem uma dinâmica muito rica, que será analisada em detalhes ao longo desta parte 1 do trabalho.
 
 \begin{equation}
-x_{n+!} = \lambda x_{n}(1 - x_{n})
+x_{n+1} = \lambda x_{n}(1 - x_{n})
 \label{eq:parte1}
 \end{equation}
 
 \subsection*{Questão 1}
 \label{sec:p1q1}
-Determine analiticamente pontos fixos $x^{*}$ do mapa logístico, Equação~\ref{eq:parte1} e determine as condições para que sejam assintoticamente estáveis. Veja que o parâmetro crucial deste problema é $\lambda$ .
+Determine analiticamente pontos fixos $x^{*}$ do mapa logístico, Equação~\ref{eq:parte1} e determine as condições para que sejam assintoticamente estáveis. Veja que o parâmetro crucial deste problema é $\lambda$.
+
+\subsection*{Questão 2}
+\label{sec:p1q2}
+Escreva um programa computacional para calcular os pontos fixos da Equação~\ref{eq:parte1} a partir de seus resultados analíticos e trace um gráfico $\lambda$ x $x^{*}$. Trace, para seis valores representativos de $\lambda$, o resultado das iterações $x_{n}$ x $n$.
+
+\subsection*{Questão 3}
+\label{sec:p1q3}
+Escreva um programa para determinar, iterativamente, os elementos distintos de suas órbitas para $\lambda$ $\in$ $[3, 4]$, em incrementos de 0.001. Salve os seus resultados em um arquivo e, juntando-os com os pontos fixos encontrados na questão anterior, trace os resultados $\lambda$ x $x_{k}^{*}$, para $\lambda$ variando no intervalo $[0, 4]$, e surpreenda-se com a representação gráfica do caos!
+
+\subsection*{Questão 4}
+\label{sec:p1q4}
+Para cada valor de $\lambda$ utilizado nos cálculos, salve em uma tabela o período de cada uma das órbitas obtidas e, posteriormente, trace este resultado em um gráfico. Qual é o maior período de uma órbita observada em sua simulação? Quantas vezes a órbita de período 2 foi obtida? E a de período 5?
 
 \section*{Parte II: Solução de equações não-lineares}
 \label{sec:parte2}
+
+Nesta segunda parte, vamos estudar o processo de aquecimento de uma barra muito longa de um material, que é aquecida em uma de suas extremidades com o auxílio de um maçarico. Para isto, vamos modelar este processo da seguinte maneira: vamos considerar uma barra de seção transversal constante, semi-infinita e posicionada no eixo $x \leq 0$. A temperatura inicial da barra é $T_{i}$ em toda a barra. O maçarico será modelado especificando-se um fluxo de calor constante $q$ na posição $x = 0$. Considere que a barra tenha difusividade térmica $\alpha$ e que a temperatura da barra seja $T = T (x, t)$. Este problema é governado pela Equação~\ref{eq:parte2} do calor, cuja solução pode ser facilmente encontrada pela aplicação da \textit{Transformada de Laplace} (Equação~\ref{eq:laplace}) (Não é preciso resolver a equação!).
+
+\subsection*{Questão 1}
+\label{sec:p2q1}
 
 \end{document}
