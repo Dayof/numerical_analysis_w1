@@ -1,9 +1,3 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Este é um documento que servirá de modelo para
-% os relatórios feitos na disciplina Circuitos Digitais
-% 2016-2
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \documentclass[12pt]{article}
 
 \usepackage{sbc-template}
@@ -22,12 +16,12 @@
 \usepackage{amssymb}
 \usepackage{amsmath}
 
-     
+
 \sloppy
 
 
-\title{Trabalho 1\\ 
-Processos Iterativos\\ 
+\title{Trabalho 1\\
+Processos Iterativos\\
 \&\\
 Solução de equações não-lineares}
 
@@ -41,16 +35,12 @@ Solução de equações não-lineares}
   \email{dayannefernandesc@gmail.com, yurick.hauschild@gmail.com}
 }
 
-\begin{document} 
+\begin{document}
 \maketitle
 
-\selectlanguage{american}
- \begin{abstract}
-	This report corresponds to the ...
- \end{abstract}
-\selectlanguage{brazil}     
-    
- \begin{resumo} 
+\selectlanguage{brazil}
+
+ \begin{resumo}
  	Este relatório corresponde aos informativos das resoluções do Trabalho 1 de Cálculo Numérico da Turma A do semestre 2016/2.
  \end{resumo}
 
@@ -73,32 +63,53 @@ Se aumentarmos um pouco mais $\lambda$, veremos agora que o processo passa a ter
 Determine analiticamente pontos fixos $x^{*}$ do mapa logístico, Equação~\ref{eq:parte1} e determine as condições para que sejam assintoticamente estáveis. Veja que o parâmetro crucial deste problema é $\lambda$.
 
 \textbf{Resolução:}
-A partir do processo iterativo descrito na Equação~\ref{eq:parte1} é possível achar os pontos fixos $x^{*}$ analisando as raízes do sistema:
+A partir do processo iterativo descrito na Equação~\ref{eq:parte1} é possível achar os pontos fixos $x^{*}$ analisando o processo iterativo:
 
 \begin{eqnarray}
+x_{n+1} = \lambda x_{n} (1 - x_{n}) \nonumber \\
 x^{*} = \lambda x^{*} (1 - x^{*}) \nonumber \\
 \lambda x^{*} -  \lambda x^{*^{2}} - x^{*} = 0 \\
-x^{*} (\lambda - \lambda x^{*} - 1) = 0 \nonumber 
-\label{eq:pto1}
+x^{*} (\lambda - \lambda x^{*} - 1) = 0 \nonumber
+\label{equ:pto1}
 \end{eqnarray}
 
-Pela Equação~\ref{eq:pto1} temos o ponto fixo $x^{*} = 0$. Agora quando $x^{*} \neq 0$:
+Pela Equação~\ref{equ:pto1} temos o ponto fixo $x^{*} = 0$. Agora quando $x^{*} \neq 0$:
 
 \begin{eqnarray}
 \lambda - \lambda x^{*} - 1 = 0 \nonumber \\
 - x^{*} = \frac{1 - \lambda}{\lambda} \\
 x^{*} = \frac{\lambda - 1}{\lambda} \nonumber
-\label{eq:pto2}
+\label{equ:pto2}
 \end{eqnarray}
 
-Pela Equação~\ref{eq:pto2} temos o ponto fixo $x^{*} = \frac{\lambda - 1}{\lambda}$.
+Pela Equação~\ref{equ:pto2} temos o ponto fixo $x^{*} = \frac{\lambda - 1}{\lambda}$.
 
 Para que a Equação~\ref{eq:parte1} do processo iterativo do mapa logístico tenha pontos fixos assintoticamente estáveis é necessário que a condição da dicotomia na Equação~\ref{eq:pto2} seja válida para todos os pontos fixos do sistema.
 
 \begin{eqnarray}
-\left| g(x^{*})' \right| < 1
+    g(x) = \lambda x (1 - x) \nonumber \\
+    \left| g'(x^{*}) \right| < 1 \\
+    \left| \lambda - 2\lambda x^{*} \right| < 1 \nonumber
 \label{eq:assest}
 \end{eqnarray}
+
+Para $x^{*} = 0$, temos:
+
+\begin{eqnarray}
+    \left| \lambda - 2 \lambda 0 \right| < 1 \nonumber\\
+    \left|\lambda\right| < 1
+\end{eqnarray}
+
+Para $x^{*} = \frac{\lambda - 1}{\lambda}$, por sua vez:
+
+\begin{eqnarray}
+    \left| \lambda - 2 \lambda \frac{\lambda-1}{\lambda} \right| < 1 \nonumber \\
+    \left| \lambda - 2 \lambda + 2 \right| < 1 \\
+    \left| \lambda - 2 \right| < 1 \nonumber \\
+    \left|\lambda| < 3 \nonumber
+\end{eqnarray}
+
+Concluímos, então, que, dado o apropriado $x_{0}$, ${x^{*}}$ vai para 0 com $\lambda < 1$ e para $\frac{\lambda-1}{\lambda}$ com $1 < \lambda < 3$.
 
 \subsection*{Questão 2}
 \label{sec:p1q2}
