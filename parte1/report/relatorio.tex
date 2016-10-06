@@ -19,6 +19,9 @@
 \usepackage{algorithmic}
 \usepackage{algorithm}
 \usepackage{hyperref}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
      
 \sloppy
 
@@ -61,9 +64,20 @@ x_{n+1} = \lambda x_{n}(1 - x_{n})
 \label{eq:parte1}
 \end{equation}
 
+De suas análises, você deve obter que para $\lambda \geq 3$, nenhum ponto fixo é assintoticamente estável. Porém, vamos ver o que acontece quando $\lambda \geq 3$. Já em $\lambda = 3$, você verá que o sistema tem um comportamento interessante: apesar das iterações não convergirem para um ponto fixo, o sistema irá oscilar, depois de algumas iterações, entre dois valores fixos. Quando isto acontece, dizemos que o processo iterativo tem uma \textbf{órbita} de período 2, isto é, $x_{n} = x_{n+2} = x_{n+4} = ... = x_{1}^{*}$ e $x_{n+1} = x_{n+3} = x_{n+5} = ... = x_{2}^{*}$. Este comportamento persistirá até $\lambda \approx 3.449$.
+
+Se aumentarmos um pouco mais $\lambda$, veremos agora que o processo passa a ter órbita de período 4. Se seguirmos aumentando $\lambda$, veremos que o período das órbitas irá dobrar repetidas vezes até $\lambda \approx 3.569$. Isto é o que chamamos de uma bifurcação no sistema e, em particular, esta bifurcação se chama de duplicação de períodos (\textit{period doubling}). O sistema se torna ainda mais rico, porém, se aumentarmos ainda mais $\lambda$. Neste caso, órbitas de qualquer período $k \in  \mathbb{N}$ aparecem, intercaladas com sequências de bifurcações de duplicação de períodos. Isto é o que chamamos de \textit{caos determinístico}. Este comportamento é observado até $\lambda = 4$. A partir deste ponto, as iterações simplesmente divergem.
+
 \subsection*{Questão 1}
 \label{sec:p1q1}
 Determine analiticamente pontos fixos $x^{*}$ do mapa logístico, Equação~\ref{eq:parte1} e determine as condições para que sejam assintoticamente estáveis. Veja que o parâmetro crucial deste problema é $\lambda$.
+
+\textbf{Resolução:}
+A partir do processo iterativo descrito na Equação~\ref{eq:parte1} é possível achar os pontos fixos $x^{*}$ analisando as raízes do sistema:
+
+\begin{equation}
+x^{*} = \lambda x^{*} (1 - x^{*})
+\end{equation}
 
 \subsection*{Questão 2}
 \label{sec:p1q2}
@@ -82,7 +96,67 @@ Para cada valor de $\lambda$ utilizado nos cálculos, salve em uma tabela o per�
 
 Nesta segunda parte, vamos estudar o processo de aquecimento de uma barra muito longa de um material, que é aquecida em uma de suas extremidades com o auxílio de um maçarico. Para isto, vamos modelar este processo da seguinte maneira: vamos considerar uma barra de seção transversal constante, semi-infinita e posicionada no eixo $x \leq 0$. A temperatura inicial da barra é $T_{i}$ em toda a barra. O maçarico será modelado especificando-se um fluxo de calor constante $q$ na posição $x = 0$. Considere que a barra tenha difusividade térmica $\alpha$ e que a temperatura da barra seja $T = T (x, t)$. Este problema é governado pela Equação~\ref{eq:parte2} do calor, cuja solução pode ser facilmente encontrada pela aplicação da \textit{Transformada de Laplace} (Equação~\ref{eq:laplace}) (Não é preciso resolver a equação!).
 
-\subsection*{Questão 1}
-\label{sec:p2q1}
+\begin{equation}
+\frac{\partial T}{\partial t} = \alpha \frac{\partial^{2} T}{\partial x^{2}} \hbox{, com } \frac{\partial T}{\partial x} (0,t) = q \hbox{ e } T(x,0) = T_{i}
+\label{eq:parte2}
+\end{equation}
+
+\begin{equation}
+T(x, t) = T_{i} + q \left[ 2 \sqrt{\frac{\alpha t}{\pi}} e^{- \frac{x^{2}}{4\alpha t}} - xerfc \left( \frac{x}{2 \sqrt{\alpha t}} \right) \right]
+\label{eq:laplace}
+\end{equation}
+
+A função erfc(x) é a função erro complementar, definida na Equação~\ref{eq:erfc}.
+
+\begin{equation}
+erfc(z) = \frac{2}{\sqrt{\pi}} \int_{z}^{\infty} e^{-w^{2}} dw = 1 - \frac{2}{\sqrt{\pi}} \int_{0}^{z} e^{-w^{2}} dz = 1 - erf(z)
+\label{eq:erfc}
+\end{equation}
+
+A segunda integral (lado direito) na Equação~\ref{eq:erfc} é a chamada função erro, $erf(z)$.
+A função $erfc(z)$ é uma função especial, definida por uma integral que não pode ser resolvida explicitamente, já que não há uma primitiva trivial para a função $e^{-z^{2}}$. Porém, sabemos que $erfc(z)$ é uma função decrescente, tal que $erfc(z) \rightarrow 0$ quando $z \rightarrow \infty$ , e que $erfc(0) = 1$.
+Assim, é fácil perceber o que a Equação~\ref{eq:laplace} representa fisicamente.
+
+A Equação~\ref{eq:laplace} descreve como a temperatura do corpo varia em cada posição $x$ ao longo do tempo $t$. Assim, fixado um $x$, sabemos como a temperatura vai evoluir nesta posição ao longo do tempo. O problema, porém, é que a Equação~\ref{eq:laplace} envolve funções muito complicadas, que não permitem a avaliação direta de valores numéricos. Vamos explorar a Equação~\ref{eq:laplace} computacionalmente e vamos ver o que podemos aprender sobre este sistema. Nesta parte 2 do trabalho, consideraremos que a função erro $erf(z)$ será dada seguinte aproximação racional (\textit{Abramowitz \& Stegun, 1964}):
+
+\begin{equation}
+erf(z) = 1 - \frac{1}{(1 + a_{1}z + a_{2}z^{2} + ... + a_{6}z^{6})^{16}}
+\label{eq:erf}
+\end{equation}
+
+Na Equação~\ref{eq:erf} temos os seguintes valores para as constantes $a1, . . . , a6$:
+
+
+\begin{align*}
+a_{1} = 0.0705230784, \qquad a_{2} = 0.0422820123, \\
+a_{3} = 0.0092705272, \qquad a_{4} = 0.0001520143, \\
+a_{5} = 0.0002765672, \qquad a_{6} = 0.0000430638. \\
+\end{align*}
+
+A função $erfc(z)$ que aparece na Equação~\ref{eq:laplace} deverá ser calculada a partir destas expressões.
+
+\subsection*{Questão 5}
+\label{sec:p2q5}
+Suponha que queiramos determinar, a partir da Equação~\ref{eq:laplace}, quando a temperatura atingirá um determinado valor especificado $T_{f}$, para valores de $\alpha$, $q$ e $x$ conhecidos. Apresente a formulação para o \textit{Método de Newton-Raphson} aplicado a este problema.
+
+\subsection*{Questão 6}
+\label{sec:p2q6}
+Escreva um programa que, para $T_{i} = 10$, $q = 1$ e $\alpha = 1$, determina o tempo $t^{*}$ para que a temperatura em $x = 1$ seja $T_{f} = 50$, usando o método de \textit{Newton-Raphson}. Apresente esta resposta com precisão de 6 casas decimais, indicando quantas iterações foram necessárias para alcançar esta precisão. Faça uma estimativa a priori do chute inicial $t_{0}$, isto é, faça estimativas de valores, justificando seus passos. Apresente, com base no chute inicial, argumentos analíticos para justificar a existência de uma raiz para a equação em questão. Faça um teste da convergência do Método de \textit{Newton-Raphson} em função do chute inicial. Por exemplo, escolha valores para o chute inicial iguais a 2, 3, 4, 5 e 10 vezes o chute estimado no item anterior e compare, num gráfico, a quantidade de iterações necessárias para alcançar a precisão desejada.
+
+\subsection*{Questão 7}
+\label{sec:p2q7}
+Implemente, também, o método da bisseção para este mesmo problema e, partindo de um intervalo de menor tamanho possível (como escolhê-lo?) centrado no chute inicial da questão anterior, compare a quantidade de iterações necessárias para se alcançar a mesma precisão para $t^{*}$. Mostre como prever este resultado teoricamente.
+
+\subsection*{Questão 8}
+\label{sec:p2q8}
+Para os mesmos valores dos parâmetros $T_{i}$, $q$, $\alpha$, automatize o seu programa para encontrar os valores de $t^{*}$ para posições $x$ variando entre $x = 1$ e $x = 5$. Faça este procedimento para pelo menos 10 pontos neste intervalo, trace um gráfico do seu resultado e comente-o. Você consegue definir uma velocidade da frente de calor que está se propagando por esta barra?
+
+\subsection*{Questão 9}
+\label{sec:p2q9}
+Repita o procedimento da Questão~\ref{sec:p2q8}, mas desta vez mantendo-se em um ponto fixo $x$ e variando o valor de $q$ entre $q = 1$ e $q = 10$. Faça este procedimento para pelo menos 10 pontos neste intervalo, trace um gráfico do seu resultado e comente-o. O que acontece quando $q$ aumenta? Agora, faça a mesma análise mantendo-se $q = 1$, mas variando $\alpha$ entre $\alpha = 1$ e $\alpha = 10$. O que acontece quando $\alpha$ aumenta?
+
+\subsection*{Questão 10}
+\label{sec:p2q10}
+Que outras análises poderiam ser feitas neste problema e com as ferramentas disponíveis? Escolha uma e apresente seus resultados, comentando-os adequadamente.
 
 \end{document}
