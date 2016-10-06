@@ -15,23 +15,22 @@
 \usepackage{hyperref}
 \usepackage{amssymb}
 \usepackage{amsmath}
-
+\graphicspath{{../graficos/}}
 
 \sloppy
 
-
 \title{Trabalho 1\\
 Processos Iterativos\\
-\&\\
+\& \\
 Solução de equações não-lineares}
 
 \author{Dayanne Fernandes da Cunha, 13/0107191\\
-       Yurick Hauschild , 12/0024136
+       Yurick Hauschild, 12/0024136
 }
 
 
-\address{Dep. Matemática -- Universidade de Brasília (UnB)\\
-  Cálculo Numérico - Turma A
+\address{Dep. Matemática $-$ Universidade de Brasília (UnB)\\
+  Cálculo Numérico $-$ Turma A
   \email{dayannefernandesc@gmail.com, yurick.hauschild@gmail.com}
 }
 
@@ -44,15 +43,15 @@ Solução de equações não-lineares}
  	Este relatório corresponde aos informativos das resoluções do Trabalho 1 de Cálculo Numérico da Turma A do semestre 2016/2.
  \end{resumo}
 
-\section*{Parte I: Processos iterativos}
+\section*{Parte I : Processos iterativos}
 \label{sec:parte1}
 
 Esta primeira questão será sobre as bifurcações do mapa logístico. Considere o processo iterativo da Equação~\ref{eq:parte1}, chamado de \textit{mapa logístico}. Este processo iterativo, apesar de aparentar ser bastante simples, tem uma dinâmica muito rica, que será analisada em detalhes ao longo desta parte 1 do trabalho.
 
-\begin{equation}
+\begin{eqnarray}
 x_{n+1} = \lambda x_{n}(1 - x_{n})
 \label{eq:parte1}
-\end{equation}
+\end{eqnarray}
 
 De suas análises, você deve obter que para $\lambda \geq 3$, nenhum ponto fixo é assintoticamente estável. Porém, vamos ver o que acontece quando $\lambda \geq 3$. Já em $\lambda = 3$, você verá que o sistema tem um comportamento interessante: apesar das iterações não convergirem para um ponto fixo, o sistema irá oscilar, depois de algumas iterações, entre dois valores fixos. Quando isto acontece, dizemos que o processo iterativo tem uma \textbf{órbita} de período 2, isto é, $x_{n} = x_{n+2} = x_{n+4} = ... = x_{1}^{*}$ e $x_{n+1} = x_{n+3} = x_{n+5} = ... = x_{2}^{*}$. Este comportamento persistirá até $\lambda \approx 3.449$.
 
@@ -63,50 +62,59 @@ Se aumentarmos um pouco mais $\lambda$, veremos agora que o processo passa a ter
 Determine analiticamente pontos fixos $x^{*}$ do mapa logístico, Equação~\ref{eq:parte1} e determine as condições para que sejam assintoticamente estáveis. Veja que o parâmetro crucial deste problema é $\lambda$.
 
 \textbf{Resolução:}
-A partir do processo iterativo descrito na Equação~\ref{eq:parte1} é possível achar os pontos fixos $x^{*}$ analisando o processo iterativo:
+A partir do processo iterativo descrito na Equação~\ref{eq:parte1} é possível achar os pontos fixos $x^{*}$ resolvendo a seguinte equação:
 
 \begin{eqnarray}
-x_{n+1} = \lambda x_{n} (1 - x_{n}) \nonumber \\
-x^{*} = \lambda x^{*} (1 - x^{*}) \nonumber \\
-\lambda x^{*} -  \lambda x^{*^{2}} - x^{*} = 0 \\
-x^{*} (\lambda - \lambda x^{*} - 1) = 0 \nonumber
-\label{equ:pto1}
+    \begin{split}
+        x^{*} = \lambda x^{*} (1 - x^{*}) \\
+        \lambda x^{*} -  \lambda x^{*^{2}} - x^{*} = 0 \\
+        x^{*} (\lambda - \lambda x^{*} - 1) = 0
+    \end{split}
+\label{eq:pto1}
 \end{eqnarray}
 
-Pela Equação~\ref{equ:pto1} temos o ponto fixo $x^{*} = 0$. Agora quando $x^{*} \neq 0$:
+Pela Equação~\ref{eq:pto1} temos o ponto fixo $x^{*} = 0$. Agora quando $x^{*} \neq 0$:
 
 \begin{eqnarray}
-\lambda - \lambda x^{*} - 1 = 0 \nonumber \\
-- x^{*} = \frac{1 - \lambda}{\lambda} \\
-x^{*} = \frac{\lambda - 1}{\lambda} \nonumber
-\label{equ:pto2}
+    \begin{split}
+        \lambda - \lambda x^{*} - 1 = 0 \\
+        - x^{*} = \frac{1 - \lambda}{\lambda} \\
+        x^{*} = \frac{\lambda - 1}{\lambda}
+    \end{split}
+\label{eq:pto2}
 \end{eqnarray}
 
-Pela Equação~\ref{equ:pto2} temos o ponto fixo $x^{*} = \frac{\lambda - 1}{\lambda}$.
+Pela Equação~\ref{eq:pto2} temos o ponto fixo $x^{*} = \frac{\lambda - 1}{\lambda}$.
 
-Para que a Equação~\ref{eq:parte1} do processo iterativo do mapa logístico tenha pontos fixos assintoticamente estáveis é necessário que a condição da dicotomia na Equação~\ref{eq:pto2} seja válida para todos os pontos fixos do sistema.
+Para que a Equação~\ref{eq:parte1} do processo iterativo do mapa logístico tenha pontos fixos assintoticamente estáveis é necessário que a condição da dicotomia na Equação~\ref{eq:assest} seja válida para todos os pontos fixos do sistema.
 
 \begin{eqnarray}
-    g(x) = \lambda x (1 - x) \nonumber \\
-    \left| g'(x^{*}) \right| < 1 \\
-    \left| \lambda - 2\lambda x^{*} \right| < 1 \nonumber
+    \begin{split}
+        g(x^{*}) = \lambda x^{*} (1 - x^{*}) \\
+        \left| g'(x^{*}) \right| < 1 \\
+        \left| \lambda - 2\lambda x^{*} \right| < 1
+    \end{split}
 \label{eq:assest}
 \end{eqnarray}
 
 Para $x^{*} = 0$, temos:
 
 \begin{eqnarray}
-    \left| \lambda - 2 \lambda 0 \right| < 1 \nonumber\\
-    \left|\lambda\right| < 1
+    \begin{split}
+        \left| \lambda - 2 \lambda 0 \right| < 1 \\
+        \left| \lambda\right| < 1
+    \end{split}
 \end{eqnarray}
 
 Para $x^{*} = \frac{\lambda - 1}{\lambda}$, por sua vez:
 
 \begin{eqnarray}
-    \left| \lambda - 2 \lambda \frac{\lambda-1}{\lambda} \right| < 1 \nonumber \\
-    \left| \lambda - 2 \lambda + 2 \right| < 1 \\
-    \left| \lambda - 2 \right| < 1 \nonumber \\
-    \left|\lambda| < 3 \nonumber
+    \begin{split}
+        \left| \lambda - 2 \lambda \frac{\lambda - 1}{\lambda} \right| < 1 \\
+        \left| \lambda - 2 \lambda + 2 \right| < 1 \\
+        \left| \lambda - 2 \right| < 1  \\
+        \left| \lambda \right| < 3
+    \end{split}
 \end{eqnarray}
 
 Concluímos, então, que, dado o apropriado $x_{0}$, ${x^{*}}$ vai para 0 com $\lambda < 1$ e para $\frac{\lambda-1}{\lambda}$ com $1 < \lambda < 3$.
@@ -114,6 +122,39 @@ Concluímos, então, que, dado o apropriado $x_{0}$, ${x^{*}}$ vai para 0 com $\
 \subsection*{Questão 2}
 \label{sec:p1q2}
 Escreva um programa computacional para calcular os pontos fixos da Equação~\ref{eq:parte1} a partir de seus resultados analíticos e trace um gráfico $\lambda$ x $x^{*}$. Trace, para seis valores representativos de $\lambda$, o resultado das iterações $x_{n}$ x $n$.
+
+\textbf{Resolução:}
+Primeiro foi avaliado à escolha do $x_{0}$, que, através da análise do comportamento da função para diferentes valores de $x$, percebeu-se que o intervalo ideal para escolha do $x_{0}$ está contido entre $0.33 < x < 0.5$ como podemos observar na resolução abaixo:
+
+\begin{eqnarray}
+    \begin{split}
+        0 < g'(x^{*}) < 1 \\
+        0 < \lambda - 2 \lambda x < 1 \\
+        - \lambda < - 2 \lambda x < 1 - \lambda \\
+        \lambda > 2 \lambda x > \lambda - 1 \\
+        0.5 > x >  \frac{\lambda - 1}{2 \lambda}
+    \end{split}
+\end{eqnarray}
+
+Dado que $\lambda < 3$ para o processo iterativo ser assintoticamente estável temos que um $x_{0}$ ideal deve repousar no intervalo $0.33 < x < 0.5$. Escolhemos então o valor $x_{0} = 0.4$.
+
+O algoritmo implementado para gerar os dados do processo iterativo pode ser encontrado no arquivo "$\textit{parte1/questao2.f90}$".
+
+Foram gerados então dois gráficos para demonstrar os resultados analíticos dos pontos fixos, onde, na primeira Figura~\ref{fig:p1q2g1} mostramos o plano cartesiano de $\lambda$ x $x^{*}$ e na Figura~\ref{fig:p1q2g2} é focado nos resultados das iterações $x_{n}$ x $n$.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{p1q2g1.png}
+	\caption{Gráfico de $\lambda$ versus $x^{*}$.}
+	\label{fig:p1q2g1}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{p1q2g2.png}
+	\caption{Gráfico de $x_{n}$ versus $n$}
+	\label{fig:p1q2g2}
+\end{figure}
 
 \subsection*{Questão 3}
 \label{sec:p1q3}
@@ -123,7 +164,7 @@ Escreva um programa para determinar, iterativamente, os elementos distintos de s
 \label{sec:p1q4}
 Para cada valor de $\lambda$ utilizado nos cálculos, salve em uma tabela o período de cada uma das órbitas obtidas e, posteriormente, trace este resultado em um gráfico. Qual é o maior período de uma órbita observada em sua simulação? Quantas vezes a órbita de período 2 foi obtida? E a de período 5?
 
-\section*{Parte II: Solução de equações não-lineares}
+\section*{Parte II : Solução de equações não-lineares}
 \label{sec:parte2}
 
 Nesta segunda parte, vamos estudar o processo de aquecimento de uma barra muito longa de um material, que é aquecida em uma de suas extremidades com o auxílio de um maçarico. Para isto, vamos modelar este processo da seguinte maneira: vamos considerar uma barra de seção transversal constante, semi-infinita e posicionada no eixo $x \leq 0$. A temperatura inicial da barra é $T_{i}$ em toda a barra. O maçarico será modelado especificando-se um fluxo de calor constante $q$ na posição $x = 0$. Considere que a barra tenha difusividade térmica $\alpha$ e que a temperatura da barra seja $T = T (x, t)$. Este problema é governado pela Equação~\ref{eq:parte2} do calor, cuja solução pode ser facilmente encontrada pela aplicação da \textit{Transformada de Laplace} (Equação~\ref{eq:laplace}) (Não é preciso resolver a equação!).
@@ -138,7 +179,7 @@ T(x, t) = T_{i} + q \left[ 2 \sqrt{\frac{\alpha t}{\pi}} e^{- \frac{x^{2}}{4\alp
 \label{eq:laplace}
 \end{equation}
 
-A função erfc(x) é a função erro complementar, definida na Equação~\ref{eq:erfc}.
+A função $erfc(x)$ é a função erro complementar, definida na Equação~\ref{eq:erfc}.
 
 \begin{equation}
 erfc(z) = \frac{2}{\sqrt{\pi}} \int_{z}^{\infty} e^{-w^{2}} dw = 1 - \frac{2}{\sqrt{\pi}} \int_{0}^{z} e^{-w^{2}} dz = 1 - erf(z)
@@ -152,12 +193,11 @@ Assim, é fácil perceber o que a Equação~\ref{eq:laplace} representa fisicame
 A Equação~\ref{eq:laplace} descreve como a temperatura do corpo varia em cada posição $x$ ao longo do tempo $t$. Assim, fixado um $x$, sabemos como a temperatura vai evoluir nesta posição ao longo do tempo. O problema, porém, é que a Equação~\ref{eq:laplace} envolve funções muito complicadas, que não permitem a avaliação direta de valores numéricos. Vamos explorar a Equação~\ref{eq:laplace} computacionalmente e vamos ver o que podemos aprender sobre este sistema. Nesta parte 2 do trabalho, consideraremos que a função erro $erf(z)$ será dada seguinte aproximação racional (\textit{Abramowitz \& Stegun, 1964}):
 
 \begin{equation}
-erf(z) = 1 - \frac{1}{(1 + a_{1}z + a_{2}z^{2} + ... + a_{6}z^{6})^{16}}
+erf(z) = 1 - \frac{1}{(1 + a_{1}z + a_{2}z^{2} + ... + a_{6}z^{ 6 })^{16}}
 \label{eq:erf}
 \end{equation}
 
 Na Equação~\ref{eq:erf} temos os seguintes valores para as constantes $a1, . . . , a6$:
-
 
 \begin{align*}
 a_{1} = 0.0705230784, \qquad a_{2} = 0.0422820123, \\
