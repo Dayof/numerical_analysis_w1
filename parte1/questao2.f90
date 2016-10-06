@@ -17,8 +17,8 @@ program questao2
     open(unit=6, file="data/questao2.6.dat", status="unknown", action="write")
 
         do j=1, size(lambda_values)
-            x = 100.0
-            xn = 0.2
+            x = 100.0 ! qualquer valor diferente de 0.4
+            xn = 0.4 ! vide sessão (7)
             n = 0
 
             do while(abs(xn - x) .gt. 0.0001)
