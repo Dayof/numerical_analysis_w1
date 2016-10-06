@@ -7,6 +7,8 @@ program questao3
     real, dimension(1000) :: xslist
     integer :: xslist_iter = 0
 
+    real, parameter :: precision = 0.0001
+
     ! Write data in output files
     open(unit=1, file="data/questao3.dat", status="unknown", action="write")
 
@@ -19,10 +21,9 @@ program questao3
                 x = xn
                 xn = f(x, lambda)
 
-                if(any(xslist==xn)) then
+                if(isInside(xslist, xslist_iter, xn).eq.0) then
                     exit ! breaks loop if we find a cicle
                 else
-                    write(*,*) xn
                     ! add xn to end of list
                     call addToList(xslist, xslist_iter, xn)
                 end if
@@ -46,6 +47,30 @@ contains
 
         return
     end function f
+
+    function isInside(list, iter, element)
+
+        implicit none
+
+        real, dimension(1000) :: list
+        real :: element
+        integer :: isInside, iter
+
+        integer :: i
+        integer :: found=0
+
+        do i=1, iter
+            if(list(i) - element .lt. precision ) then ! if list(i) == element
+                found = i
+                exit
+            end if
+        end do
+
+        isInside = found
+
+        return
+
+    end function isInside
 
     subroutine resetIterator(iterator)
 
