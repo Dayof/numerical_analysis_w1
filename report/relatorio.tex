@@ -307,19 +307,28 @@ A partir do valor inicial de $t_{0} = 100$, pegamos este valor e multiplicamos e
 Implemente, também, o método da bisseção para este mesmo problema e, partindo de um intervalo de menor tamanho possível (como escolhê-lo?) centrado no chute inicial da questão anterior, compare a quantidade de iterações necessárias para se alcançar a mesma precisão para $t^{*}$. Mostre como prever este resultado teoricamente.
 
 \textbf{Resolução:}
-O método de bisseção foi implementado para o mesmo problema na parte 2 deste trabalho e pode ser encontrado no arquivo "$\textit{parte2/questao789.f90}$". O intervalo escolhido para aplicar o método foi de $[0, 1600]$
+O método de bisseção foi implementado para o mesmo problema na parte 2 deste trabalho e pode ser encontrado no arquivo "$\textit{parte2/questao78910.f90}$". O intervalo escolhido para aplicar o método foi de $[0, 1600]$
 
 \subsection*{Questão 8}
 \label{sec:p2q8}
 Para os mesmos valores dos parâmetros $T_{i}$, $q$, $\alpha$, automatize o seu programa para encontrar os valores de $t^{*}$ para posições $x$ variando entre $x = 1$ e $x = 5$. Faça este procedimento para pelo menos 10 pontos neste intervalo, trace um gráfico do seu resultado e comente-o. Você consegue definir uma velocidade da frente de calor que está se propagando por esta barra?
 
-\textbf{Resolução:}
+\textbf{Resolução:} O algoritmo implementado para resolver esta questão pode ser encontrado no arquivo "$\textit{parte2/questao78910.f90}$". Para os mesmo valores $T_{i} = 10$, $q = 1$, $\alpha = 1$, buscamos encontrar $t^{*}$ para posições de $x$ variando de $[1, 5]$. Na tabela de dados que se encontra no arquivo "$\textit{parte2/data/questao8.dat}$" contém 10 pontos entre este intervalo sugerido. O gráfico que geramos pode pode ser visto na Figura~\ref{fig:p2q8} abaixo. Podemos analisar pelo gráfico abaixo que ao variar $x$, $t(x)$ cresce proporcionalmente.
+
+A velocidade média de propagação pode ser encontrada utilizando a variação de espaço no tempo, logo, temos a variação de x sendo igual $9$ e a de t igual a $232.753784$, resultando então em $3.86674702E-02$.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{p2q8.png}
+	\caption{Gráfico de $x$ versus $t(x)$.}
+	\label{fig:p2q8}
+\end{figure}
 
 \subsection*{Questão 9}
 \label{sec:p2q9}
 Repita o procedimento da Questão~\ref{sec:p2q8}, mas desta vez mantendo-se em um ponto fixo $x$ e variando o valor de $q$ entre $q = 1$ e $q = 10$. Faça este procedimento para pelo menos 10 pontos neste intervalo, trace um gráfico do seu resultado e comente-o. O que acontece quando $q$ aumenta? Agora, faça a mesma análise mantendo-se $q = 1$, mas variando $\alpha$ entre $\alpha = 1$ e $\alpha = 10$. O que acontece quando $\alpha$ aumenta?
 
-\textbf{Resolução:}
+\textbf{Resolução:} O algoritmo implementado para resolver esta questão também está presente no arquivo "$\textit{parte2/questao78910.f90}$"
 
 \subsection*{Questão 10}
 \label{sec:p2q10}

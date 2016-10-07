@@ -323,6 +323,9 @@ INPUT ../parte2/graficos/p2q6g1.png
 INPUT ../parte2/graficos/p2q6g2.png
 INPUT ../parte2/graficos/p2q6g2.png
 INPUT ../parte2/graficos/p2q6g2.png
+INPUT ../parte2/graficos/p2q8.png
+INPUT ../parte2/graficos/p2q8.png
+INPUT ../parte2/graficos/p2q8.png
 INPUT relatorio.aux
 INPUT ./relatorio.out
 INPUT ./relatorio.out
@@ -333,6 +336,7 @@ INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.p
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb
