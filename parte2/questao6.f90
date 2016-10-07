@@ -5,7 +5,7 @@ program questao6
     real, parameter :: Ti=10, Tf=50, q=1, a=1
     real, parameter :: PI=3.14159265359, e=2.71828182846
     real :: ts, t0 ! Tstar and Tzero
-    real :: t=100, tn=100 ! T0 = 100
+    real :: t=100, tn=6000 ! T0 = 100
     real :: x = 1
 
     integer :: n = 1
@@ -15,6 +15,7 @@ program questao6
     do while(.TRUE.) ! infinite loop :D
         t = tn
         tn = newton(tn)
+        write(*,*) tn
 
         if(abs(t-tn) < 0.0000001 ) exit ! if precision is reached, break
 
@@ -46,6 +47,8 @@ contains
 
         f = Ti - Tf + q*(2*sqrt(a*t/PI)*(e**(-x*x/(4*a*t))) - x*erfc(x/(2*sqrt(a*t))))
 
+        if(isnan(f)) write(*,*) "f is nan"
+
         return
     end function
 
@@ -55,6 +58,8 @@ contains
         real Df, t
 
         Df = q*a*(e**(-x*x/(4*a*t)))/(sqrt(PI*a*t))
+
+        if(isnan(Df)) write(*,*) "Df is nan"
 
         return
     end function
