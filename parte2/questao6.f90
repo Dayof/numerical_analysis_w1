@@ -2,12 +2,15 @@ program questao6
 
     implicit none
 
-    real, parameter :: Ti=10, Tf=50, q=1, a=1, x=1
+    real, parameter :: Ti=10, Tf=50, q=1, a=1
     real, parameter :: PI=3.14159265359, e=2.71828182846
     real :: ts, t0 ! Tstar and Tzero
     real :: t=100, tn=100 ! T0 = 100
+    real :: x = 1
 
     integer :: n = 1
+
+    open(unit=1, file="data/questao6.dat", status="unknown", action="write")
 
     do while(.TRUE.) ! infinite loop :D
         t = tn
@@ -15,9 +18,11 @@ program questao6
 
         if(abs(t-tn) < 0.0000001 ) exit ! if precision is reached, break
 
-        write(*,'(i10,f12.6)') n, tn
+        write(1,'(i10,f12.6)') n, tn
         n = n+1
     end do
+
+    close(unit=1)
 
 contains
 
