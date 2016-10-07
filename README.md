@@ -1,13 +1,4 @@
 # Cálculo Numérico
------
-## Sumário
-
-1. Descrição
-2. Dados do projeto
-3. Passo a passo
-4. Execução
-
-## Conteúdo
 
 ### 1. Descrição
 
@@ -19,14 +10,7 @@ Trabalho 1 da matéria de Cálculo Numérico de 16/02, ministrada pelo professor
   * Dayanne Fernandes
     * Matrícula: 13/0107191
     * E-mail: dayannefernandesc@gmail.com
-  * Yurick Hauschild 
-    * Matrícula: 
+  * Yurick Hauschild
+    * Matrícula:
     * E-mail: yurick.hauschild@gmail.com
-
-### 3. Passo a passo
-
-### 4. Execução
-
-
-
-
+* Grupo: 6
