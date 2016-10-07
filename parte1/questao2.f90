@@ -16,11 +16,13 @@ program questao2
     open(unit=5, file="data/questao2.5.dat", status="unknown", action="write")
     open(unit=6, file="data/questao2.6.dat", status="unknown", action="write")
 
+        ! for each lambda
         do j=1, size(lambda_values)
-            x = 100.0 ! qualquer valor diferente de 0.4
-            xn = 0.4 ! vide sessão (7)
+            x = 100.0 ! just so abs(xn-x) is big
+            xn = 0.4 ! lookup point (7) on report
             n = 0
 
+            ! repeat until converge
             do while(abs(xn - x) .gt. 0.0001)
                 n = n+1
                 x = xn

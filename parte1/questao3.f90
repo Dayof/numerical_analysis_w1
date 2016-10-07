@@ -13,6 +13,8 @@ program questao3
     open(unit=1, file="data/questao3.dat", status="unknown", action="write")
     open(unit=2, file="data/questao4.dat", status="unknown", action="write")
 
+
+        !
         do j=3000, 4000
             lambda = lambda + 0.001
             xn = 0.4
