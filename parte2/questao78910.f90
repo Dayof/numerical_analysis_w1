@@ -58,7 +58,8 @@ program questao78910
     end do
 
     if(mode.ne.'n') then
-        write(*,*) "Velocidade média de propagação: ", total/9
+        write(*,*) "Variação de t: ", total
+        write(*,*) "Velocidade média de propagação: ", 9/total
         ! irrelevant to q6
     end if
 
