@@ -4,7 +4,7 @@ program questao6
 
     real, parameter :: Ti=10, Tf=50, q=1, a=1
     real, parameter :: PI=3.14159265359, e=2.71828182846
-    real :: ts, t0=800 ! Tstar and Tzero
+    real :: ts, t0=1320 ! Tstar and Tzero
     real :: t, tn
     real :: x = 1
 
@@ -29,7 +29,7 @@ program questao6
             end if
 
             if(equals(t, tn)) then
-                write(2,'(i10, f12.6)') n, t0*coef(j)
+                write(2,'(i8, f14.6)') n, t0*coef(j)
                 exit ! if precision is reached, break
             end if
 
@@ -51,6 +51,8 @@ contains
         real :: newton, t
 
         newton = t - f(t)/Df(t)
+
+        if(isnan(newton)) newton=0 ! fix for negative values of newton
 
         return
     end function

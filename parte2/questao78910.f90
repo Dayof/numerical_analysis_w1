@@ -5,13 +5,9 @@ program questao78910
     real, parameter :: Tf=50
     real, parameter :: PI=3.14159265359, e=2.71828182846
     real :: x=1, q=1, a=1, Ti=10
-    real :: answer, next, total=0
+    real :: answer, interest
 
-    ! answer = last calculated fix point
-    ! next = next calculated fix point
-    ! total = total of differences between fix points
-
-    integer :: i
+    integer :: i, j=1
     integer :: fileunit
 
     character(1) :: mode
@@ -30,36 +26,30 @@ program questao78910
         if(mode.eq.'x') then !relevant to question 8
             x = 1 + i*0.4
             fileunit = 8
+            interest = x
         elseif ( mode.eq.'a' ) then ! relevant to question 9
             a = i*1.0
             fileunit = 92
+            interest = a
         elseif ( mode.eq.'q' ) then ! relevant to question 9
             q = i*1.0
             fileunit = 91
+            interest = q
         elseif ( mode.eq.'t' ) then ! relevant to question 10
-            Ti = i*5.0
+            Ti = i*4.0
             fileunit = 10
+            interest = Ti
         else
             mode = 'n' ! relevant to question 7
             fileunit = 7
+            interest = 1
         end if
 
-        answer = next
+        call bissect(0.0, 2000.0, answer) ! intervalo de busca
+        write(fileunit,'(i10, f14.6, f14.6)') i, answer, interest
 
-        call bissect(0.0, 1600.0, next)
-        write(fileunit,*) i, next, x
-
-        if(i.ne.1) then
-            total = total + (next - answer)
-        elseif(mode.eq.'n') then
-            exit ! if no variance is needed, break
-        end if
-
+        if(mode.eq.'n') exit ! if no variance is needed, break
     end do
-
-    if(mode.eq.'x') then
-        write(*,*) "Velocidade média de propagação: ", 9/total
-    end if
 
     close(unit=7)
     close(unit=8)
@@ -102,15 +92,17 @@ contains
 
         middle = (s+e)/2
 
-        if(equals(s, e)) then
-            answer = s
+        if(equals(f(middle), .0)) then
+            answer = middle
+
+            if(mode.eq.'n') i = j ! is j our iteration step counter?
             return
         end if
 
-        if(equals(f(middle), .0)) then
-            answer = middle
-            return
-        end if
+        if(mode.eq.'n') then
+             write(7,'(i10, f14.6, f14.6)') j, middle, 0.0
+             j = j + 1
+         end if
 
         if(f(s)*f(middle).lt.0) then
             call bissect(s, middle, answer)

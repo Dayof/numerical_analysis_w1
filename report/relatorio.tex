@@ -43,7 +43,7 @@ Solução de equações não-lineares}
  	Este relatório corresponde aos informativos das resoluções do Trabalho 1 de Cálculo Numérico da Turma A do semestre 2016/2.
  \end{resumo}
 
-\section*{Parte I : Processos iterativos}
+\section{Parte I : Processos iterativos}
 \label{sec:parte1}
 
 Esta primeira questão será sobre as bifurcações do mapa logístico. Considere o processo iterativo da Equação~\ref{eq:parte1}, chamado de \textit{mapa logístico}. Este processo iterativo, apesar de aparentar ser bastante simples, tem uma dinâmica muito rica, que será analisada em detalhes ao longo desta parte 1 do trabalho.
@@ -57,8 +57,8 @@ De suas análises, você deve obter que para $\lambda \geq 3$, nenhum ponto fixo
 
 Se aumentarmos um pouco mais $\lambda$, veremos agora que o processo passa a ter órbita de período 4. Se seguirmos aumentando $\lambda$, veremos que o período das órbitas irá dobrar repetidas vezes até $\lambda \approx 3.569$. Isto é o que chamamos de uma bifurcação no sistema e, em particular, esta bifurcação se chama de duplicação de períodos (\textit{period doubling}). O sistema se torna ainda mais rico, porém, se aumentarmos ainda mais $\lambda$. Neste caso, órbitas de qualquer período $k \in  \mathbb{N}$ aparecem, intercaladas com sequências de bifurcações de duplicação de períodos. Isto é o que chamamos de \textit{caos determinístico}. Este comportamento é observado até $\lambda = 4$. A partir deste ponto, as iterações simplesmente divergem.
 
-\subsection*{Questão 1}
-\label{sec:p1q1}
+\subsection{Questão 1}
+\label{subsec:p1q1}
 Determine analiticamente pontos fixos $x^{*}$ do mapa logístico, Equação~\ref{eq:parte1} e determine as condições para que sejam assintoticamente estáveis. Veja que o parâmetro crucial deste problema é $\lambda$.
 
 \textbf{Resolução:}
@@ -119,8 +119,8 @@ Para $x^{*} = \frac{\lambda - 1}{\lambda}$, por sua vez:
 
 Concluímos, então, que, dado o apropriado $x_{0}$, ${x^{*}}$ vai para 0 com $\lambda < 1$ e para $\frac{\lambda-1}{\lambda}$ com $1 < \lambda < 3$.
 
-\subsection*{Questão 2}
-\label{sec:p1q2}
+\subsection{Questão 2}
+\label{subsec:p1q2}
 Escreva um programa computacional para calcular os pontos fixos da Equação~\ref{eq:parte1} a partir de seus resultados analíticos e trace um gráfico $\lambda$ x $x^{*}$. Trace, para seis valores representativos de $\lambda$, o resultado das iterações $x_{n}$ x $n$.
 
 \textbf{Resolução:}
@@ -156,14 +156,14 @@ Foram gerados então dois gráficos para demonstrar os resultados analíticos do
 	\label{fig:p1q2g2}
 \end{figure}
 
-\subsection*{Questão 3}
-\label{sec:p1q3}
+\subsection{Questão 3}
+\label{subsec:p1q3}
 Escreva um programa para determinar, iterativamente, os elementos distintos de suas órbitas para $\lambda$ $\in$ $[3, 4]$, em incrementos de 0.001. Salve os seus resultados em um arquivo e, juntando-os com os pontos fixos encontrados na questão anterior, trace os resultados $\lambda$ x $x_{k}^{*}$, para $\lambda$ variando no intervalo $[0, 4]$, e surpreenda-se com a representação gráfica do caos!
 
 \textbf{Resolução:}
 Foi implementado o programa para gerar os dados de $\lambda$ $\in$ $[3, 4]$ em incrementos de 0.001, ele pode ser encontrado no arquivo "$\textit{parte1/questao34.f90}$". Os resultados encontrados podem ser encontrados no arquivo "$\textit{parte1/data/questao3.dat}$". Este arquivo possui na primeira coluna os valores de $\lambda$ entre $[3, 4]$ e nas colunas restantes os valores de cada iteração até formar uma órbita completa para cada valor iterado de $\lambda$.
 
-Traçamos o gráfico $\lambda$ x $x_{k}^{*}$ com os resultados encontrados com o programa desta Questão~\ref{sec:p1q3} e da Questão~\ref{sec:p1q2} variando o $\lambda$ no intervalo $[0, 4]$ e a Figura~\ref{fig:p1q3} foi encontrada. O gráfico encontrado mostra o comportamento oscilatório esperado de $4 \geq \lambda \geq 3$, encontrando bifurcações a partir de $\lambda = 3$.
+Traçamos o gráfico $\lambda$ x $x_{k}^{*}$ com os resultados encontrados com o programa desta Questão~\ref{subsec:p1q3} e da Questão~\ref{subsec:p1q2} variando o $\lambda$ no intervalo $[0, 4]$ e a Figura~\ref{fig:p1q3} foi encontrada. O gráfico encontrado mostra o comportamento oscilatório esperado de $4 \geq \lambda \geq 3$, encontrando bifurcações a partir de $\lambda = 3$.
 
 \begin{figure}[H]
 	\centering
@@ -172,12 +172,12 @@ Traçamos o gráfico $\lambda$ x $x_{k}^{*}$ com os resultados encontrados com o
 	\label{fig:p1q3}
 \end{figure}
 
-\subsection*{Questão 4}
-\label{sec:p1q4}
+\subsection{Questão 4}
+\label{subsec:p1q4}
 Para cada valor de $\lambda$ utilizado nos cálculos, salve em uma tabela o período de cada uma das órbitas obtidas e, posteriormente, trace este resultado em um gráfico. Qual é o maior período de uma órbita observada em sua simulação? Quantas vezes a órbita de período 2 foi obtida? E a de período 5?
 
 \textbf{Resolução:}
-O algoritmo da Questão~\ref{sec:p1q4} também está contido no arquivo "$\textit{parte1/questao34.f90}$" pois utiliza o mesmo raciocínio. Os dados encontrados através do algoritmo podem ser encontrados no arquivo "$\textit{parte1/data/questao4.dat}$". A primeira coluna da tabela de dados contém valores de $\lambda$ entre $[3, 4]$ em incrementos de 0.001, e na segunda coluna possui o número de períodos de cada órbita de $\lambda$. O gráfico foi gerado a partir desses dados e podemos observá-lo na Figura~\ref{fig:p1q4}. Podemos ver no gráfico que o número de ciclos cresce proporcionalmente à $\lambda$, porém, foi encontrado erros de decaimento nos períodos das órbitas possivelmente devido à erros de aproximação.
+O algoritmo da Questão~\ref{subsec:p1q4} também está contido no arquivo "$\textit{parte1/questao34.f90}$" pois utiliza o mesmo raciocínio. Os dados encontrados através do algoritmo podem ser encontrados no arquivo "$\textit{parte1/data/questao4.dat}$". A primeira coluna da tabela de dados contém valores de $\lambda$ entre $[3, 4]$ em incrementos de 0.001, e na segunda coluna possui o número de períodos de cada órbita de $\lambda$. O gráfico foi gerado a partir desses dados e podemos observá-lo na Figura~\ref{fig:p1q4}. Podemos ver no gráfico que o número de ciclos cresce proporcionalmente à $\lambda$, porém, foi encontrado erros de decaimento nos períodos das órbitas possivelmente devido à erros de aproximação.
 
 O maior período de uma órbita observado na simulação foi de $k = 21$, sendo o $k = 2$ observado em 194 órbitas e $k = 5$ em 13 órbitas.
 
@@ -188,7 +188,7 @@ O maior período de uma órbita observado na simulação foi de $k = 21$, sendo 
 	\label{fig:p1q4}
 \end{figure}
 
-\section*{Parte II : Solução de equações não-lineares}
+\section{Parte II : Solução de equações não-lineares}
 \label{sec:parte2}
 
 Nesta segunda parte, vamos estudar o processo de aquecimento de uma barra muito longa de um material, que é aquecida em uma de suas extremidades com o auxílio de um maçarico. Para isto, vamos modelar este processo da seguinte maneira: vamos considerar uma barra de seção transversal constante, semi-infinita e posicionada no eixo $x \leq 0$. A temperatura inicial da barra é $T_{i}$ em toda a barra. O maçarico será modelado especificando-se um fluxo de calor constante $q$ na posição $x = 0$. Considere que a barra tenha difusividade térmica $\alpha$ e que a temperatura da barra seja $T = T (x, t)$. Este problema é governado pela Equação~\ref{eq:parte2} do calor, cuja solução pode ser facilmente encontrada pela aplicação da \textit{Transformada de Laplace} (Equação~\ref{eq:laplace}) (Não é preciso resolver a equação!).
@@ -229,8 +229,8 @@ a_{5} = 0.0002765672, \qquad a_{6} = 0.0000430638. \\
 
 A função $erfc(z)$ que aparece na Equação~\ref{eq:laplace} deverá ser calculada a partir destas expressões.
 
-\subsection*{Questão 5}
-\label{sec:p2q5}
+\subsection{Questão 5}
+\label{subsec:p2q5}
 Suponha que queiramos determinar, a partir da Equação~\ref{eq:laplace}, quando a temperatura atingirá um determinado valor especificado $T_{f}$, para valores de $\alpha$, $q$ e $x$ conhecidos. Apresente a formulação para o \textit{Método de Newton-Raphson} aplicado a este problema.
 
 \textbf{Resolução:}
@@ -268,14 +268,30 @@ Logo aplicando a Equação~\ref{eq:f(x)} e a Equação~\ref{eq:df(x)} no método
     \label{eq:newrf}
 \end{eqnarray}
 
-\subsection*{Questão 6}
-\label{sec:p2q6}
+\subsection{Questão 6}
+\label{subsec:p2q6}
 Escreva um programa que, para $T_{i} = 10$, $q = 1$ e $\alpha = 1$, determina o tempo $t^{*}$ para que a temperatura em $x = 1$ seja $T_{f} = 50$, usando o método de \textit{Newton-Raphson}. Apresente esta resposta com precisão de 6 casas decimais, indicando quantas iterações foram necessárias para alcançar esta precisão. Faça uma estimativa a priori do chute inicial $t_{0}$, isto é, faça estimativas de valores, justificando seus passos. Apresente, com base no chute inicial, argumentos analíticos para justificar a existência de uma raiz para a equação em questão. Faça um teste da convergência do Método de \textit{Newton-Raphson} em função do chute inicial. Por exemplo, escolha valores para o chute inicial iguais a 2, 3, 4, 5 e 10 vezes o chute estimado no item anterior e compare, num gráfico, a quantidade de iterações necessárias para alcançar a precisão desejada.
 
 \textbf{Resolução:}
-O algoritmo da Questão~\ref{sec:p2q6} pode ser encontrado no arquivo "$\textit{parte2/questao6.f90}$". Nele possui o processo iterativo utilizando o método de \textit{Newton-Raphson} apresentado na questão anterior (Questão~\ref{sec:p2q5}) utilizando os valores constantes de $T_{i} = 10$, $q = 1$ e $\alpha = 1$. O arquivo "$\textit{parte2/data/questao6.dat}$" possui o tempo $t^{*}$ encontrado após 5 iterações para quando a temperatura final em $x = 1$ seja $T_{f} = 50$. A resposta é apresentada com uma precisão de 6 casas decimais e foi encontrado utilizando o chute inicial de $t_{0} = 800$.
+O algoritmo da Questão~\ref{subsec:p2q6} pode ser encontrado no arquivo "$\textit{parte2/questao6.f90}$". Nele possui o processo iterativo utilizando o método de \textit{Newton-Raphson} apresentado na questão anterior (Questão~\ref{subsec:p2q5}) utilizando os valores constantes de $T_{i} = 10$, $q = 1$ e $\alpha = 1$. O arquivo "$\textit{parte2/data/questao6.dat}$" possui o tempo $t^{*}$ encontrado após 5 iterações para quando a temperatura final em $x = 1$ seja $T_{f} = 50$. A resposta é apresentada com uma precisão de 6 casas decimais e foi encontrado utilizando o chute inicial de $t_{0} = 800$.
 
-Analisando a fisionomia de $f(t)$, o chute inicial $t_{0}$ não pode ter valores negativos pois ele está contido dentre raizes quadradas e nem pode ser nulo pois ele tem papel de divisor em alguns termos. Analisando o provável valor máximo de t, percebe-se que  Ao utilizar o ponto fixo gerado pelo algoritmo desta questão (Figura~\ref{fig:p2q6g1}) como entrada de $f(t^{*})$ foi obtido como resultado $f(t^{*}) = 0$, o que indica que a raiz encontrada está correta.
+Analisando a fisionomia de $f(t)$, o chute inicial $t_{0}$ não pode ter valores negativos pois ele está contido dentre raizes quadradas e nem pode ser nulo pois ele tem papel de divisor em alguns termos. Analisando o comportamento da equação para grandes valores de t, percebe-se que:
+
+\begin{eqnarray}
+    \begin{split}
+        T_{f} = T_{i} + q \left[ 2 \sqrt{\frac{\alpha t}{\pi}} e^{- \frac{x^{2}}{4\alpha t}} - xerfc \left( \frac{x}{2 \sqrt{\alpha t}} \right) \right] \\
+        50 = 10 + \left[ 2 \sqrt{\frac{t}{\pi}} e^{-\frac{1}{4t}} - erfc \left(\frac{1}{2\sqrt{t}}\right)\right] \\
+        40 = 2\sqrt{\frac{t}{\pi}} - 1 \\
+        41 = 2\sqrt{\frac{t}{\pi}} \\
+        (20.5)^{2} = \frac{t}{\pi}\\
+        420.25\pi = t \\
+        t \tilde{=} 1320
+    \end{split}
+    \label{eq:dedumargin}
+\end{eqnarray}
+
+Um bom chute, portanto, seria $1320$.
+Ao utilizar o ponto fixo gerado pelo algoritmo desta questão (Figura~\ref{fig:p2q6g1}) como entrada de $f(t^{*})$ foi obtido como resultado $f(t^{*}) = 0$, o que indica que a raiz encontrada está correta.
 
 \begin{figure}[H]
 	\centering
@@ -293,7 +309,7 @@ Logo, para verificar a convergência do Método de \textit{Newton-Raphson} utili
     \label{eq:convnewr}
 \end{eqnarray}
 
-A partir do valor inicial de $t_{0} = 100$, pegamos este valor e multiplicamos ele por 2, 3, 4, 5 e 10 vezes para conferir a quantidade de iterações necessárias para alcançar a precisão desejada. O resultado pode ser observado na Figura~\ref{fig:p2q6g2}.
+A partir do valor inicial de $t_{0} = 1320$, pegamos este valor e multiplicamos ele por 2, 3, 4, 5 e 10 para conferir a quantidade de iterações necessárias para alcançar a precisão desejada de 6 casas decimais. O resultado pode ser observado na Figura~\ref{fig:p2q6g2}.
 
 \begin{figure}[H]
 	\centering
@@ -302,20 +318,35 @@ A partir do valor inicial de $t_{0} = 100$, pegamos este valor e multiplicamos e
 	\label{fig:p2q6g2}
 \end{figure}
 
-\subsection*{Questão 7}
-\label{sec:p2q7}
+\subsection{Questão 7}
+\label{subsec:p2q7}
 Implemente, também, o método da bisseção para este mesmo problema e, partindo de um intervalo de menor tamanho possível (como escolhê-lo?) centrado no chute inicial da questão anterior, compare a quantidade de iterações necessárias para se alcançar a mesma precisão para $t^{*}$. Mostre como prever este resultado teoricamente.
 
 \textbf{Resolução:}
-O método de bisseção foi implementado para o mesmo problema na parte 2 deste trabalho e pode ser encontrado no arquivo "$\textit{parte2/questao78910.f90}$". O intervalo escolhido para aplicar o método foi de $[0, 1600]$
+O método de bisseção foi implementado para o mesmo problema na parte 2 deste trabalho e pode ser encontrado no arquivo "$\textit{parte2/questao78910.f90}$". O intervalo escolhido para aplicar o método foi de $[1310, 1330]$, pois $f(1310) = -0.151741028$, $f(1330) =   0.158782959$ e, como seus sinais são opostos, isto significa que há uma raiz da função no intervalo.
 
-\subsection*{Questão 8}
-\label{sec:p2q8}
+O professor pode notar que o código não utiliza este intervalo para os seus cálculos. Isto é decorrente do fato de que o arquivo $\textit{parte2/questao78910.f90}$ contém um código flexível, que abrange as soluções das questões 7, 8, 9 e 10. Portanto, um intervalo próprio para uma configuração de constantes pode não ser próprio para outra, e vice-versa.
+
+Para modificar o intervalo no código, basta corrigir os parâmetros que o subprograma $\textit{bissect()}$ recebe, na linha 54.
+
+Com o dado intervalo, foram necessárias 16 iterações para encontrar o valor com a precisão desejada. As iterações estão visíveis na Figura~\ref{fig:p2q7} abaixo.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{p2q7.png}
+    \caption{Gráfico de iterações da bissecção.}
+    \label{fig:p2q7}
+\end{figure}
+
+O número de iterações máximo para o espaço amostral utilizado (de $20.000.000$ de entradas, por causa da precisão de 6 dígitos) é $log_{2}(20.000.000) = 24$. É fácil verificar que o número de iterações encontrado está na margem aceitável para o algoritmo, e que este número é muito maior que o número de iterações encontrado na questão 6 (6 iterações), indicando uma maior eficiência do método de Newton sobre a busca por bissecção.
+
+\subsection{Questão 8}
+\label{subsec:p2q8}
 Para os mesmos valores dos parâmetros $T_{i}$, $q$, $\alpha$, automatize o seu programa para encontrar os valores de $t^{*}$ para posições $x$ variando entre $x = 1$ e $x = 5$. Faça este procedimento para pelo menos 10 pontos neste intervalo, trace um gráfico do seu resultado e comente-o. Você consegue definir uma velocidade da frente de calor que está se propagando por esta barra?
 
-\textbf{Resolução:} O algoritmo implementado para resolver esta questão pode ser encontrado no arquivo "$\textit{parte2/questao78910.f90}$". Para os mesmo valores $T_{i} = 10$, $q = 1$, $\alpha = 1$, buscamos encontrar $t^{*}$ para posições de $x$ variando de $[1, 5]$. Na tabela de dados que se encontra no arquivo "$\textit{parte2/data/questao8.dat}$" contém 10 pontos entre este intervalo sugerido. O gráfico que geramos pode pode ser visto na Figura~\ref{fig:p2q8} abaixo. Podemos analisar pelo gráfico abaixo que ao variar $x$, $t(x)$ cresce proporcionalmente.
+\textbf{Resolução:} O algoritmo implementado para resolver esta questão pode ser encontrado no arquivo "$\textit{parte2/questao78910.f90}$". Para os mesmo valores $T_{i} = 10$, $q = 1$, $\alpha = 1$, buscamos encontrar $t^{*}$ para posições de $x$ variando de $[1, 5]$. Na tabela de dados que se encontra no arquivo "$\textit{parte2/data/questao8.dat}$" contém 10 pontos dentro do intervalo sugerido. O gráfico que geramos pode pode ser visto na Figura~\ref{fig:p2q8} abaixo. Podemos analisar pelo gráfico abaixo que ao variar $x$, $t(x)$ cresce proporcionalmente.
 
-A velocidade média de propagação pode ser encontrada utilizando a variação de espaço no tempo, logo, temos a variação de x sendo igual $9$ e a de t igual a $232.753784$, resultando então em $3.86674702E-02$.
+A velocidade média de propagação pode ser encontrada utilizando a variação de espaço no tempo, logo, temos a variação de x sendo igual $5 - 1 = 4$ e a de t igual a $232.753905$, resultando então em $0.015466 x/t$.
 
 \begin{figure}[H]
 	\centering
@@ -324,11 +355,11 @@ A velocidade média de propagação pode ser encontrada utilizando a variação 
 	\label{fig:p2q8}
 \end{figure}
 
-\subsection*{Questão 9}
-\label{sec:p2q9}
-Repita o procedimento da Questão~\ref{sec:p2q8}, mas desta vez mantendo-se em um ponto fixo $x$ e variando o valor de $q$ entre $q = 1$ e $q = 10$. Faça este procedimento para pelo menos 10 pontos neste intervalo, trace um gráfico do seu resultado e comente-o. O que acontece quando $q$ aumenta? Agora, faça a mesma análise mantendo-se $q = 1$, mas variando $\alpha$ entre $\alpha = 1$ e $\alpha = 10$. O que acontece quando $\alpha$ aumenta?
+\subsection{Questão 9}
+\label{subsec:p2q9}
+Repita o procedimento da Questão~\ref{subsec:p2q8}, mas desta vez mantendo-se em um ponto fixo $x$ e variando o valor de $q$ entre $q = 1$ e $q = 10$. Faça este procedimento para pelo menos 10 pontos neste intervalo, trace um gráfico do seu resultado e comente-o. O que acontece quando $q$ aumenta? Agora, faça a mesma análise mantendo-se $q = 1$, mas variando $\alpha$ entre $\alpha = 1$ e $\alpha = 10$. O que acontece quando $\alpha$ aumenta?
 
-\textbf{Resolução:} O mesmo procedimento da Questão~\ref{sec:p2q8} foi seguido e o algoritmo implementado para resolver esta questão também está presente no arquivo "$\textit{parte2/questao78910.f90}$", porém desta vez $x$ está em ponto fixo e temos uma variação de $q$ entra $[1, 10]$. Na tabela de dados que se encontra no arquivo "$\textit{parte2/data/questao9.1.dat}$" contém 10 pontos entre este intervalo sugerido. O gráfico que geramos pode pode ser visto na Figura~\ref{fig:p2q91} abaixo. Podemos analisar pelo gráfico abaixo que ao variar $q$, $t(q)$ varia de forma $e^{-q}$.
+\textbf{Resolução:} O mesmo procedimento da Questão~\ref{subsec:p2q8} foi seguido e o algoritmo implementado para resolver esta questão também está presente no arquivo "$\textit{parte2/questao78910.f90}$", porém desta vez $x$ está em ponto fixo e temos uma variação de $q$ entre $[1, 10]$. A tabela de dados que se encontra no arquivo "$\textit{parte2/data/questao9.1.dat}$" contém 10 pontos entre este intervalo sugerido. O gráfico que geramos pode ser visto na Figura~\ref{fig:p2q91} abaixo. Podemos analisar pelo gráfico abaixo que ao variar $q$, $t(q)$ varia na forma $frac{1}{q}$, conforme esperado.
 
 \begin{figure}[H]
 	\centering
@@ -337,7 +368,7 @@ Repita o procedimento da Questão~\ref{sec:p2q8}, mas desta vez mantendo-se em u
 	\label{fig:p2q91}
 \end{figure}
 
-Logo após variamos $\alpha$ entre $\alpha = 1$ e $\alpha = 10$ com ponto fixo de $q = 1$. Na tabela de dados que se encontra no arquivo "$\textit{parte2/data/questao9.2.dat}$" contém 10 pontos entre este intervalo sugerido. O gráfico que geramos pode pode ser visto na Figura~\ref{fig:p2q92} abaixo. Podemos analisar pelo gráfico abaixo que ao variar $\alpha$, $t(\alpha)$ também encontramos a variação da forma $e^{-\alpha}$.
+Logo após variamos $\alpha$ entre $\alpha = 1$ e $\alpha = 10$ com ponto fixo de $q = 1$. A tabela de dados que se encontra no arquivo "$\textit{parte2/data/questao9.2.dat}$" contém 10 pontos dentro do intervalo sugerido. O gráfico gerado é representado na Figura~\ref{fig:p2q92} abaixo. Pode-se analisar pelo gráfico que ao variar $\alpha$, $t(\alpha)$ encontramos a variação da forma $e^{-\alpha}$.
 
 \begin{figure}[H]
 	\centering
@@ -346,11 +377,20 @@ Logo após variamos $\alpha$ entre $\alpha = 1$ e $\alpha = 10$ com ponto fixo d
 	\label{fig:p2q92}
 \end{figure}
 
-\subsection*{Questão 10}
-\label{sec:p2q10}
+\subsection{Questão 10}
+\label{subsec:p2q10}
 Que outras análises poderiam ser feitas neste problema e com as ferramentas disponíveis? Escolha uma e apresente seus resultados, comentando-os adequadamente.
 
 \textbf{Resolução:}
-É possível verificar o comportamento do processo de aquecimento de uma barra a partir de temperaturas iniciais diferentes. Por exemplo, vamos supor uma variação de $[0, 100]$. Temos como valores fixos $q = 1$, $\alpha = 1$, $x = 1$ e $T_{f} = 500$, sendo assim, o mesmo procedimento da Questão~\ref{sec:p2q8} e  Questão~\ref{sec:p2q9} é utilizado para 10 ponto neste intervalo. Uma tabela de dados foi gerada e o gráfico foi plotado a partir destes dados como podemos analisar na Figura~\ref{}. Podemos analisar que no aumento da temperatura inicial...
+É possível verificar o comportamento do processo de aquecimento de uma barra a partir de temperaturas iniciais diferentes. Por exemplo, vamos supor uma variação de $T_{i} em [0, 100]$. Temos como valores constantes $q = 1$, $\alpha = 1$, $x = 1$ e $T_{f} = 500$, sendo assim, o mesmo procedimento da Questão~\ref{subsec:p2q8} e  Questão~\ref{subsec:p2q9} é utilizado para 10 pontos neste intervalo. Uma tabela de dados foi gerada e o gráfico foi plotado a partir destes dados, como podemos analisar na Figura~\ref{fig:p2q10} abaixo.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{p2q10.png}
+    \caption{Gráfico de variação de $t$ com $T_{i}$}
+    \label{fig:p2q10}
+\end{figure}
+
+O comportamento aproximadamente linear seguindo $t(T_{i}) \propto -T_{i}$ foi exatamente o esperado da análise da fisionomia da função.
 
 \end{document}
