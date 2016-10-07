@@ -160,9 +160,33 @@ Foram gerados então dois gráficos para demonstrar os resultados analíticos do
 \label{sec:p1q3}
 Escreva um programa para determinar, iterativamente, os elementos distintos de suas órbitas para $\lambda$ $\in$ $[3, 4]$, em incrementos de 0.001. Salve os seus resultados em um arquivo e, juntando-os com os pontos fixos encontrados na questão anterior, trace os resultados $\lambda$ x $x_{k}^{*}$, para $\lambda$ variando no intervalo $[0, 4]$, e surpreenda-se com a representação gráfica do caos!
 
+\textbf{Resolução:}
+Foi implementado o programa para gerar os dados de $\lambda$ $\in$ $[3, 4]$ em incrementos de 0.001, ele pode ser encontrado no arquivo "$\textit{parte1/questao34.f90}$". Os resultados encontrados podem ser encontrados no arquivo "$\textit{parte1/data/questao3.dat}$". Este arquivo possui na primeira coluna os valores de $\lambda$ entre $[3, 4]$ e nas colunas restantes os valores de cada iteração até formar uma órbita completa para cada valor iterado de $\lambda$.
+
+Traçamos o gráfico $\lambda$ x $x_{k}^{*}$ com os resultados encontrados com o programa desta Questão~\ref{sec:p1q3} e da Questão~\ref{sec:p1q2} variando o $\lambda$ no intervalo $[0, 4]$ e a Figura~\ref{fig:p1q3} foi encontrada. O gráfico encontrado mostra o comportamento oscilatório esperado de $4 \geq \lambda \geq 3$, encontrando bifurcações a partir de $\lambda = 3$.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{p1q3.png}
+	\caption{Gráfico de $\lambda$ versus $x_{k}^{*}$.}
+	\label{fig:p1q3}
+\end{figure}
+
 \subsection*{Questão 4}
 \label{sec:p1q4}
 Para cada valor de $\lambda$ utilizado nos cálculos, salve em uma tabela o período de cada uma das órbitas obtidas e, posteriormente, trace este resultado em um gráfico. Qual é o maior período de uma órbita observada em sua simulação? Quantas vezes a órbita de período 2 foi obtida? E a de período 5?
+
+\textbf{Resolução:}
+A algoritmo da Questão~\ref{sec:p1q4} também está contido no arquivo "$\textit{parte1/questao34.f90}$" pois utiliza o mesmo raciocínio. Os dados encontrados através do algoritmo podem ser encontrados no arquivo "$\textit{parte1/data/questao4.dat}$". A primeira coluna da tabela de dados contém valores de $\lambda$ entre $[3, 4]$ em incrementos de 0.001, e na segunda coluna possui o número de períodos de cada órbita de $\lambda$. O gráfico foi gerado a partir desses dados e podemos observá-lo na Figura~\ref{fig:p1q4}. Podemos ver no gráfico que o número de ciclos cresce proporcionalmente à $\lambda$, porém, foi encontrado erros de decaimento nos períodos das órbitas possivelmente devido à erros de aproximação.
+
+O maior período de uma órbita observado na simulação foi de $k = 21$, sendo o $k = 2$ observado em 194 órbitas e $k = 5$ em 13 órbitas.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{p1q4.png}
+	\caption{Gráfico de $\lambda$ versus $k$.}
+	\label{fig:p1q4}
+\end{figure}
 
 \section*{Parte II : Solução de equações não-lineares}
 \label{sec:parte2}

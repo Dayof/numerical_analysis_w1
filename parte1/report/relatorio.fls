@@ -311,6 +311,12 @@ INPUT ../graficos/p1q2g2.png
 INPUT ../graficos/p1q2g2.png
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/vf/adobe/helvetic/phvb7t.vf
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/adobe/helvetic/phvb8r.tfm
+INPUT ../graficos/p1q3.png
+INPUT ../graficos/p1q3.png
+INPUT ../graficos/p1q3.png
+INPUT ../graficos/p1q4.png
+INPUT ../graficos/p1q4.png
+INPUT ../graficos/p1q4.png
 INPUT relatorio.aux
 INPUT ./relatorio.out
 INPUT ./relatorio.out
