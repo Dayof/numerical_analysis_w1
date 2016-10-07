@@ -12,8 +12,14 @@ program questao789
     ! total = total of differences between fix points
 
     integer :: i
+    integer :: fileunit
 
     character(1) :: mode
+
+    open(unit=7, file="data/questao7.dat", status="unknown", action="write")
+    open(unit=8, file="data/questao8.dat", status="unknown", action="write")
+    open(unit=91, file="data/questao9.1.dat", status="unknown", action="write")
+    open(unit=92, file="data/questao9.2.dat", status="unknown", action="write")
 
     write(*,*) "Qual constante deve ser variada? [x, a, q, none]"
     read(*,*) mode
@@ -22,18 +28,22 @@ program questao789
 
         if(mode.eq.'x') then !relevant to question 8
             x = 1 + i*0.4
+            fileunit = 8
         elseif ( mode.eq.'a' ) then ! relevant to question 9
             a = i*1.0
+            fileunit = 92
         elseif ( mode.eq.'q' ) then ! relevant to question 9
             q = i*1.0
+            fileunit = 91
         else
             mode = 'n' ! relevant to question 7
+            fileunit = 7
         end if
 
         answer = next
 
         call bissect(0.0, 2000.0, next)
-        write(*,*) next
+        write(fileunit,*) i, next, x
 
         if(i.ne.1) then
             total = total + (next - answer)
@@ -47,6 +57,11 @@ program questao789
         write(*,*) "Velocidade média de propagação: ", total/9
         ! irrelevant to q6
     end if
+
+    close(unit=7)
+    close(unit=8)
+    close(unit=91)
+    close(unit=92)
 
 contains
 
@@ -68,7 +83,7 @@ contains
         real, parameter :: precision = 0.0000001
         logical :: equals
 
-        equals = abs(a-b) < precision
+        equals = abs(a-b).lt.precision
 
         return
     end function
