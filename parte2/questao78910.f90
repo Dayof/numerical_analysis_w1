@@ -20,9 +20,9 @@ program questao78910
     open(unit=8, file="data/questao8.dat", status="unknown", action="write")
     open(unit=91, file="data/questao9.1.dat", status="unknown", action="write")
     open(unit=92, file="data/questao9.2.dat", status="unknown", action="write")
-    open(unit=925, file="data/questao10.dat", status="unknown", action="write")
+    open(unit=10, file="data/questao10.dat", status="unknown", action="write")
 
-    write(*,*) "Qual constante deve ser variada? [t, x, a, q, none(n)]"
+    write(*,*) "Qual constante deve ser variada? [ti, x, a, q, none]"
     read(*,*) mode
 
     do i=1, 10
@@ -36,9 +36,9 @@ program questao78910
         elseif ( mode.eq.'q' ) then ! relevant to question 9
             q = i*1.0
             fileunit = 91
-        elseif ( mode.eq.'t' ) then ! relevant to question 9
-            Ti = i*25
-            fileunit = 925
+        elseif ( mode.eq.'t' ) then ! relevant to question 10
+            Ti = i*5.0
+            fileunit = 10
         else
             mode = 'n' ! relevant to question 7
             fileunit = 7
@@ -57,10 +57,8 @@ program questao78910
 
     end do
 
-    if(mode.ne.'n') then
-        write(*,*) "Variação de t: ", total
+    if(mode.eq.'x') then
         write(*,*) "Velocidade média de propagação: ", 9/total
-        ! irrelevant to q6
     end if
 
     close(unit=7)
@@ -103,6 +101,11 @@ contains
         real :: middle
 
         middle = (s+e)/2
+
+        if(equals(s, e)) then
+            answer = s
+            return
+        end if
 
         if(equals(f(middle), .0)) then
             answer = middle
