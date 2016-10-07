@@ -177,7 +177,7 @@ Traçamos o gráfico $\lambda$ x $x_{k}^{*}$ com os resultados encontrados com o
 Para cada valor de $\lambda$ utilizado nos cálculos, salve em uma tabela o período de cada uma das órbitas obtidas e, posteriormente, trace este resultado em um gráfico. Qual é o maior período de uma órbita observada em sua simulação? Quantas vezes a órbita de período 2 foi obtida? E a de período 5?
 
 \textbf{Resolução:}
-A algoritmo da Questão~\ref{sec:p1q4} também está contido no arquivo "$\textit{parte1/questao34.f90}$" pois utiliza o mesmo raciocínio. Os dados encontrados através do algoritmo podem ser encontrados no arquivo "$\textit{parte1/data/questao4.dat}$". A primeira coluna da tabela de dados contém valores de $\lambda$ entre $[3, 4]$ em incrementos de 0.001, e na segunda coluna possui o número de períodos de cada órbita de $\lambda$. O gráfico foi gerado a partir desses dados e podemos observá-lo na Figura~\ref{fig:p1q4}. Podemos ver no gráfico que o número de ciclos cresce proporcionalmente à $\lambda$, porém, foi encontrado erros de decaimento nos períodos das órbitas possivelmente devido à erros de aproximação.
+O algoritmo da Questão~\ref{sec:p1q4} também está contido no arquivo "$\textit{parte1/questao34.f90}$" pois utiliza o mesmo raciocínio. Os dados encontrados através do algoritmo podem ser encontrados no arquivo "$\textit{parte1/data/questao4.dat}$". A primeira coluna da tabela de dados contém valores de $\lambda$ entre $[3, 4]$ em incrementos de 0.001, e na segunda coluna possui o número de períodos de cada órbita de $\lambda$. O gráfico foi gerado a partir desses dados e podemos observá-lo na Figura~\ref{fig:p1q4}. Podemos ver no gráfico que o número de ciclos cresce proporcionalmente à $\lambda$, porém, foi encontrado erros de decaimento nos períodos das órbitas possivelmente devido à erros de aproximação.
 
 O maior período de uma órbita observado na simulação foi de $k = 21$, sendo o $k = 2$ observado em 194 órbitas e $k = 5$ em 13 órbitas.
 
@@ -271,6 +271,9 @@ Logo aplicando a Equação~\ref{eq:f(x)} e a Equação~\ref{eq:df(x)} no método
 \subsection*{Questão 6}
 \label{sec:p2q6}
 Escreva um programa que, para $T_{i} = 10$, $q = 1$ e $\alpha = 1$, determina o tempo $t^{*}$ para que a temperatura em $x = 1$ seja $T_{f} = 50$, usando o método de \textit{Newton-Raphson}. Apresente esta resposta com precisão de 6 casas decimais, indicando quantas iterações foram necessárias para alcançar esta precisão. Faça uma estimativa a priori do chute inicial $t_{0}$, isto é, faça estimativas de valores, justificando seus passos. Apresente, com base no chute inicial, argumentos analíticos para justificar a existência de uma raiz para a equação em questão. Faça um teste da convergência do Método de \textit{Newton-Raphson} em função do chute inicial. Por exemplo, escolha valores para o chute inicial iguais a 2, 3, 4, 5 e 10 vezes o chute estimado no item anterior e compare, num gráfico, a quantidade de iterações necessárias para alcançar a precisão desejada.
+
+\textbf{Resolução:}
+O algoritmo da Questão~\ref{sec:p2q6} pode ser encontrado no arquivo "$\textit{parte2/questao6.f90}$". Nele possui o processo iterativo utilizando o método de \textit{Newton-Raphson} apresentado na questão anterior (Questão~\ref{sec:p2q5}) utilizando os valores constantes de $T_{i} = 10$, $q = 1$ e $\alpha = 1$. No arquivo "$\textit{parte2/data/questao6.dat}$" poussi o tempo $t^{*}$ encontrado após 5 iterações para quando a temperatura em $x = 1$ seja $T_{f} = 50$. A resposta é apresentada com uma precisão de 6 casas decimais e foi encontrado utilizando o chute inicial de $t_{0} = 100$.
 
 \subsection*{Questão 7}
 \label{sec:p2q7}
