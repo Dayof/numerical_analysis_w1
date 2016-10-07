@@ -144,14 +144,14 @@ Foram gerados então dois gráficos para demonstrar os resultados analíticos do
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{p1q2g1.png}
+	\includegraphics[width=0.6\textwidth]{p1q2g1.png}
 	\caption{Gráfico de $\lambda$ versus $x^{*}$.}
 	\label{fig:p1q2g1}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{p1q2g2.png}
+	\includegraphics[width=0.6\textwidth]{p1q2g2.png}
 	\caption{Gráfico de $x_{n}$ versus $n$}
 	\label{fig:p1q2g2}
 \end{figure}
@@ -167,7 +167,7 @@ Traçamos o gráfico $\lambda$ x $x_{k}^{*}$ com os resultados encontrados com o
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{p1q3.png}
+	\includegraphics[width=0.6\textwidth]{p1q3.png}
 	\caption{Gráfico de $\lambda$ versus $x_{k}^{*}$.}
 	\label{fig:p1q3}
 \end{figure}
@@ -183,7 +183,7 @@ O maior período de uma órbita observado na simulação foi de $k = 21$, sendo 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{p1q4.png}
+	\includegraphics[width=0.6\textwidth]{p1q4.png}
 	\caption{Gráfico de $\lambda$ versus $k$.}
 	\label{fig:p1q4}
 \end{figure}
@@ -279,7 +279,7 @@ Analisando a fisionomia de $f(t)$, o chute inicial $t_{0}$ não pode ter valores
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{p2q6g1.png}
+	\includegraphics[width=0.6\textwidth]{p2q6g1.png}
 	\caption{Gráfico de $n$ versus $t_{n}$.}
 	\label{fig:p2q6g1}
 \end{figure}
@@ -297,7 +297,7 @@ A partir do valor inicial de $t_{0} = 100$, pegamos este valor e multiplicamos e
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{p2q6g2.png}
+	\includegraphics[width=0.6\textwidth]{p2q6g2.png}
 	\caption{Gráfico de número de iterações a cada $t_{0}$.}
 	\label{fig:p2q6g2}
 \end{figure}
@@ -319,7 +319,7 @@ A velocidade média de propagação pode ser encontrada utilizando a variação 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{p2q8.png}
+	\includegraphics[width=0.6\textwidth]{p2q8.png}
 	\caption{Gráfico de $x$ versus $t(x)$.}
 	\label{fig:p2q8}
 \end{figure}
@@ -328,7 +328,23 @@ A velocidade média de propagação pode ser encontrada utilizando a variação 
 \label{sec:p2q9}
 Repita o procedimento da Questão~\ref{sec:p2q8}, mas desta vez mantendo-se em um ponto fixo $x$ e variando o valor de $q$ entre $q = 1$ e $q = 10$. Faça este procedimento para pelo menos 10 pontos neste intervalo, trace um gráfico do seu resultado e comente-o. O que acontece quando $q$ aumenta? Agora, faça a mesma análise mantendo-se $q = 1$, mas variando $\alpha$ entre $\alpha = 1$ e $\alpha = 10$. O que acontece quando $\alpha$ aumenta?
 
-\textbf{Resolução:} O algoritmo implementado para resolver esta questão também está presente no arquivo "$\textit{parte2/questao78910.f90}$"
+\textbf{Resolução:} O mesmo procedimento da Questão~\ref{sec:p2q8} foi seguido e o algoritmo implementado para resolver esta questão também está presente no arquivo "$\textit{parte2/questao78910.f90}$", porém desta vez $x$ está em ponto fixo e temos uma variação de $q$ entra $[1, 10]$. Na tabela de dados que se encontra no arquivo "$\textit{parte2/data/questao9.1.dat}$" contém 10 pontos entre este intervalo sugerido. O gráfico que geramos pode pode ser visto na Figura~\ref{fig:p2q91} abaixo. Podemos analisar pelo gráfico abaixo que ao variar $q$, $t(q)$ varia de forma $e^{-q}$.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{p2q91.png}
+	\caption{Gráfico de variação de $t$ com $q$.}
+	\label{fig:p2q91}
+\end{figure}
+
+Logo após variamos $\alpha$ entre $\alpha = 1$ e $\alpha = 10$ com ponto fixo de $q = 1$. Na tabela de dados que se encontra no arquivo "$\textit{parte2/data/questao9.2.dat}$" contém 10 pontos entre este intervalo sugerido. O gráfico que geramos pode pode ser visto na Figura~\ref{fig:p2q92} abaixo. Podemos analisar pelo gráfico abaixo que ao variar $\alpha$, $t(\alpha)$ também encontramos a variação da forma $e^{-\alpha}$.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{p2q92.png}
+	\caption{Gráfico de variação de $t$ com $\alpha$.}
+	\label{fig:p2q92}
+\end{figure}
 
 \subsection*{Questão 10}
 \label{sec:p2q10}
