@@ -42,7 +42,7 @@ program questao789
 
         answer = next
 
-        call bissect(0.0, 2000.0, next)
+        call bissect(0.0, 1600.0, next)
         write(fileunit,*) i, next, x
 
         if(i.ne.1) then
