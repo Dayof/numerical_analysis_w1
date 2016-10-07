@@ -8,21 +8,35 @@ program questao6
     real :: t=100, tn=100 ! T0 = 100
     real :: x = 1
 
-    integer :: n = 1
+    integer :: j, sum, n = 1
+    integer, dimension (6) :: tn_var
+    real, dimension (6) :: tn_var_fix
+
+    tn_var = (/ tn, tn*2, tn*3, tn*4, tn*5, tn*10 /)
+    tn_var_fix = tn_var
 
     open(unit=1, file="data/questao6.dat", status="unknown", action="write")
+    open(unit=2, file="data/questao6.1.dat", status="unknown", action="write")
 
-    do while(.TRUE.) ! infinite loop :D
-        t = tn
-        tn = newton(tn)
+    do j=1, size(tn_var_fix)
+        n = 1
+        do while(.TRUE.) ! infinite loop :D
+            t = tn_var_fix(j)
+            tn_var_fix(j) = newton(tn_var_fix(j))
 
-        if(abs(t-tn) < 0.0000001 ) exit ! if precision is reached, break
+            if(abs(t-tn_var_fix(j)) < 0.0000001 ) then
+                write(2,'(i10, i10)') n, tn_var(j)
+                exit ! if precision is reached, break
+            end if
 
-        write(1,'(i10,f12.6)') n, tn
-        n = n+1
+            if(j == 1) write(1,'(i10,f12.6)') n, tn_var_fix(j)
+
+            n = n+1
+        end do
     end do
 
     close(unit=1)
+    close(unit=2)
 
 contains
 
