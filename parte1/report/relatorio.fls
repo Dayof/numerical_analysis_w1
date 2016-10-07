@@ -311,6 +311,12 @@ INPUT ../graficos/p1q2g2.png
 INPUT ../graficos/p1q2g2.png
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/vf/adobe/helvetic/phvb7t.vf
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/adobe/helvetic/phvb8r.tfm
+INPUT ../graficos/p1q3.png
+INPUT ../graficos/p1q3.png
+INPUT ../graficos/p1q3.png
+INPUT ../graficos/p1q4.png
+INPUT ../graficos/p1q4.png
+INPUT ../graficos/p1q4.png
 INPUT relatorio.aux
 INPUT ./relatorio.out
 INPUT ./relatorio.out
@@ -325,6 +331,7 @@ INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pf
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb
