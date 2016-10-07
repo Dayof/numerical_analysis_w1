@@ -275,7 +275,7 @@ Escreva um programa que, para $T_{i} = 10$, $q = 1$ e $\alpha = 1$, determina o 
 \textbf{Resolução:}
 O algoritmo da Questão~\ref{sec:p2q6} pode ser encontrado no arquivo "$\textit{parte2/questao6.f90}$". Nele possui o processo iterativo utilizando o método de \textit{Newton-Raphson} apresentado na questão anterior (Questão~\ref{sec:p2q5}) utilizando os valores constantes de $T_{i} = 10$, $q = 1$ e $\alpha = 1$. O arquivo "$\textit{parte2/data/questao6.dat}$" possui o tempo $t^{*}$ encontrado após 5 iterações para quando a temperatura final em $x = 1$ seja $T_{f} = 50$. A resposta é apresentada com uma precisão de 6 casas decimais e foi encontrado utilizando o chute inicial de $t_{0} = 800$.
 
-Analisando a fisionomia de $f(t)$, o chute inicial $t_{0}$ não pode ter valores negativos pois ele está contido dentre raizes quadradas e nem pode ser nulo pois ele tem papel de divisor em alguns termos. Ao utilizar o ponto fixo gerado pelo algoritmo desta questão (Figura~\ref{fig:p2q6g1}) como entrada de $f(t^{*})$ foi obtido como resultado $f(t^{*}) = 0$, o que indica que a raiz encontrada está correta.
+Analisando a fisionomia de $f(t)$, o chute inicial $t_{0}$ não pode ter valores negativos pois ele está contido dentre raizes quadradas e nem pode ser nulo pois ele tem papel de divisor em alguns termos. Analisando o provável valor máximo de t, percebe-se que  Ao utilizar o ponto fixo gerado pelo algoritmo desta questão (Figura~\ref{fig:p2q6g1}) como entrada de $f(t^{*})$ foi obtido como resultado $f(t^{*}) = 0$, o que indica que a raiz encontrada está correta.
 
 \begin{figure}[H]
 	\centering
