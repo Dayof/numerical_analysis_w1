@@ -306,16 +306,26 @@ A partir do valor inicial de $t_{0} = 100$, pegamos este valor e multiplicamos e
 \label{sec:p2q7}
 Implemente, também, o método da bisseção para este mesmo problema e, partindo de um intervalo de menor tamanho possível (como escolhê-lo?) centrado no chute inicial da questão anterior, compare a quantidade de iterações necessárias para se alcançar a mesma precisão para $t^{*}$. Mostre como prever este resultado teoricamente.
 
+\textbf{Resolução:}
+O método de bisseção foi implementado para o mesmo problema na parte 2 deste trabalho e pode ser encontrado no arquivo "$\textit{parte2/questao789.f90}$". O intervalo escolhido para aplicar o método foi de $[0, 1600]$
+
 \subsection*{Questão 8}
 \label{sec:p2q8}
 Para os mesmos valores dos parâmetros $T_{i}$, $q$, $\alpha$, automatize o seu programa para encontrar os valores de $t^{*}$ para posições $x$ variando entre $x = 1$ e $x = 5$. Faça este procedimento para pelo menos 10 pontos neste intervalo, trace um gráfico do seu resultado e comente-o. Você consegue definir uma velocidade da frente de calor que está se propagando por esta barra?
+
+\textbf{Resolução:}
 
 \subsection*{Questão 9}
 \label{sec:p2q9}
 Repita o procedimento da Questão~\ref{sec:p2q8}, mas desta vez mantendo-se em um ponto fixo $x$ e variando o valor de $q$ entre $q = 1$ e $q = 10$. Faça este procedimento para pelo menos 10 pontos neste intervalo, trace um gráfico do seu resultado e comente-o. O que acontece quando $q$ aumenta? Agora, faça a mesma análise mantendo-se $q = 1$, mas variando $\alpha$ entre $\alpha = 1$ e $\alpha = 10$. O que acontece quando $\alpha$ aumenta?
 
+\textbf{Resolução:}
+
 \subsection*{Questão 10}
 \label{sec:p2q10}
 Que outras análises poderiam ser feitas neste problema e com as ferramentas disponíveis? Escolha uma e apresente seus resultados, comentando-os adequadamente.
+
+\textbf{Resolução:}
+É possível verificar o comportamento do processo de aquecimento de uma barra a partir de temperaturas iniciais diferentes. Por exemplo, vamos supor uma variação de $[0, 100]$. Temos como valores fixos $q = 1$, $\alpha = 1$, $x = 1$ e $T_{f} = 500$, sendo assim, o mesmo procedimento da Questão~\ref{sec:p2q8} e  Questão~\ref{sec:p2q9} é utilizado para 10 ponto neste intervalo. Uma tabela de dados foi gerada e o gráfico foi plotado a partir destes dados como podemos analisar na Figura~\ref{}. Podemos analisar que no aumento da temperatura inicial...
 
 \end{document}
