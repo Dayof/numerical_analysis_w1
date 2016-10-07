@@ -18,7 +18,7 @@ program questao78910
     open(unit=92, file="data/questao9.2.dat", status="unknown", action="write")
     open(unit=10, file="data/questao10.dat", status="unknown", action="write")
 
-    write(*,*) "Qual constante deve ser variada? [ti, x, a, q, none]"
+    write(*,*) "Qual constante deve ser variada? [t, x, a, q, none]"
     read(*,*) mode
 
     do i=1, 10
