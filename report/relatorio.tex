@@ -15,7 +15,7 @@
 \usepackage{hyperref}
 \usepackage{amssymb}
 \usepackage{amsmath}
-\graphicspath{{../parte1/graficos/}}
+\graphicspath{{../parte1/graficos/}{../parte2/graficos/}}
 
 \sloppy
 
@@ -273,7 +273,34 @@ Logo aplicando a Equação~\ref{eq:f(x)} e a Equação~\ref{eq:df(x)} no método
 Escreva um programa que, para $T_{i} = 10$, $q = 1$ e $\alpha = 1$, determina o tempo $t^{*}$ para que a temperatura em $x = 1$ seja $T_{f} = 50$, usando o método de \textit{Newton-Raphson}. Apresente esta resposta com precisão de 6 casas decimais, indicando quantas iterações foram necessárias para alcançar esta precisão. Faça uma estimativa a priori do chute inicial $t_{0}$, isto é, faça estimativas de valores, justificando seus passos. Apresente, com base no chute inicial, argumentos analíticos para justificar a existência de uma raiz para a equação em questão. Faça um teste da convergência do Método de \textit{Newton-Raphson} em função do chute inicial. Por exemplo, escolha valores para o chute inicial iguais a 2, 3, 4, 5 e 10 vezes o chute estimado no item anterior e compare, num gráfico, a quantidade de iterações necessárias para alcançar a precisão desejada.
 
 \textbf{Resolução:}
-O algoritmo da Questão~\ref{sec:p2q6} pode ser encontrado no arquivo "$\textit{parte2/questao6.f90}$". Nele possui o processo iterativo utilizando o método de \textit{Newton-Raphson} apresentado na questão anterior (Questão~\ref{sec:p2q5}) utilizando os valores constantes de $T_{i} = 10$, $q = 1$ e $\alpha = 1$. No arquivo "$\textit{parte2/data/questao6.dat}$" poussi o tempo $t^{*}$ encontrado após 5 iterações para quando a temperatura em $x = 1$ seja $T_{f} = 50$. A resposta é apresentada com uma precisão de 6 casas decimais e foi encontrado utilizando o chute inicial de $t_{0} = 100$.
+O algoritmo da Questão~\ref{sec:p2q6} pode ser encontrado no arquivo "$\textit{parte2/questao6.f90}$". Nele possui o processo iterativo utilizando o método de \textit{Newton-Raphson} apresentado na questão anterior (Questão~\ref{sec:p2q5}) utilizando os valores constantes de $T_{i} = 10$, $q = 1$ e $\alpha = 1$. No arquivo "$\textit{parte2/data/questao6.dat}$" possui o tempo $t^{*}$ encontrado após 5 iterações para quando a temperatura final em $x = 1$ seja $T_{f} = 50$. A resposta é apresentada com uma precisão de 6 casas decimais e foi encontrado utilizando o chute inicial de $t_{0} = 100$.
+
+Analisando a fisionomia de $f(t)$, o chute inicial $t_{0}$ não pode ter valores negativos pois ele está contido dentre raizes quadradas e nem pode ser nulo pois ele tem papel de divisor em alguns termos, portanto, pensamos em utilizar algum valore inicial $t_{0} > 0$, portanto colocamos 100. Ao utilizar o ponto fixo gerado pelo algoritmo desta questão (Figura~\ref{fig:p2q6g1}) como entrada de $f(t^{*})$ foi obtido como resultado $f(t^{*}) = 0$, o que indica que a raiz encontrada está correta.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{p2q6g1.png}
+	\caption{Gráfico de $n$ versus $t_{n}$.}
+	\label{fig:p2q6g1}
+\end{figure}
+
+Logo, para verificar a convergência do Método de \textit{Newton-Raphson} utilizamos a dicotomia $\left| f'(t^{*}) \right| < 1$. Quanto mais próximo de 0  $f'(t^{*})$ se aproximar melhor será a convergência, logo, se tivermos $f'(t^{*}) = 0$ teremos uma convergência quadrática. Portanto como podemos ver na Equação~\ref{eq:convnewr} a função irá convergir quase quadraticamente.
+
+\begin{eqnarray}
+    \begin{split}
+        f'(t_{n}) = \frac{\partial T(x, t_{n})}{\partial t_{n}} = \frac{q \alpha e^{\frac{-x^{2}}{4\alpha t_{n}}}}{\sqrt{\pi \alpha t_{n}}} = \frac{1.1.e^{\frac{-1}{4.1.(1319,754395)}}}{\sqrt{\pi.1.(1319.754395)}} = 1.55273098E-02
+    \end{split}
+    \label{eq:convnewr}
+\end{eqnarray}
+
+A partir do valor inicial de $t_{0} = 100$, pegamos este valor e multiplicamos ele por 2, 3, 4, 5 e 10 vezes para conferir a quantidade de iterações necessárias para alcançar a precisão desejada. O resultado pode ser observado na Figura~\ref{fig:p2q6g2}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{p2q6g2.png}
+	\caption{Gráfico de número de iterações a cada $t_{0}$.}
+	\label{fig:p2q6g2}
+\end{figure}
 
 \subsection*{Questão 7}
 \label{sec:p2q7}
