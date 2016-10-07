@@ -210,9 +210,7 @@ erfc(z) = \frac{2}{\sqrt{\pi}} \int_{z}^{\infty} e^{-w^{2}} dw = 1 - \frac{2}{\s
 \label{eq:erfc}
 \end{equation}
 
-A segunda integral (lado direito) na Equação~\ref{eq:erfc} é a chamada função erro, $erf(z)$.
-A função $erfc(z)$ é uma função especial, definida por uma integral que não pode ser resolvida explicitamente, já que não há uma primitiva trivial para a função $e^{-z^{2}}$. Porém, sabemos que $erfc(z)$ é uma função decrescente, tal que $erfc(z) \rightarrow 0$ quando $z \rightarrow \infty$ , e que $erfc(0) = 1$.
-Assim, é fácil perceber o que a Equação~\ref{eq:laplace} representa fisicamente.
+A segunda integral (lado direito) na Equação~\ref{eq:erfc} é a chamada função erro, $erf(z)$. A função $erfc(z)$ é uma função especial, definida por uma integral que não pode ser resolvida explicitamente, já que não há uma primitiva trivial para a função $e^{-z^{2}}$. Porém, sabemos que $erfc(z)$ é uma função decrescente, tal que $erfc(z) \rightarrow 0$ quando $z \rightarrow \infty$ , e que $erfc(0) = 1$. Assim, é fácil perceber o que a Equação~\ref{eq:laplace} representa fisicamente.
 
 A Equação~\ref{eq:laplace} descreve como a temperatura do corpo varia em cada posição $x$ ao longo do tempo $t$. Assim, fixado um $x$, sabemos como a temperatura vai evoluir nesta posição ao longo do tempo. O problema, porém, é que a Equação~\ref{eq:laplace} envolve funções muito complicadas, que não permitem a avaliação direta de valores numéricos. Vamos explorar a Equação~\ref{eq:laplace} computacionalmente e vamos ver o que podemos aprender sobre este sistema. Nesta parte 2 do trabalho, consideraremos que a função erro $erf(z)$ será dada seguinte aproximação racional (\textit{Abramowitz \& Stegun, 1964}):
 
@@ -234,6 +232,41 @@ A função $erfc(z)$ que aparece na Equação~\ref{eq:laplace} deverá ser calcu
 \subsection*{Questão 5}
 \label{sec:p2q5}
 Suponha que queiramos determinar, a partir da Equação~\ref{eq:laplace}, quando a temperatura atingirá um determinado valor especificado $T_{f}$, para valores de $\alpha$, $q$ e $x$ conhecidos. Apresente a formulação para o \textit{Método de Newton-Raphson} aplicado a este problema.
+
+\textbf{Resolução:}
+O \textit{Método de Newton-Raphson} é representado da seguinte forma:
+
+\begin{eqnarray}
+    \begin{split}
+        t_{n+1} = t_{n} - \frac{f(t_{n})}{f'(t_{n})}
+    \end{split}
+    \label{eq:newr}
+\end{eqnarray}
+
+Sendo $f(t_{n})$ e $f'(t_{n}) =\frac{\partial T(x, t)}{\partial t}$ representadas a seguir:
+
+\begin{eqnarray}
+    \begin{split}
+        f(t_{n}) = T_{i} - T_{f} + q \left[ 2 \sqrt{\frac{\alpha t_{n}}{\pi}} e^{- \frac{x^{2}}{4\alpha t_{n}}} - xerfc \left( \frac{x}{2 \sqrt{\alpha t_{n}}} \right) \right]
+    \end{split}
+    \label{eq:f(x)}
+\end{eqnarray}
+
+\begin{eqnarray}
+    \begin{split}
+        f'(t_{n}) = \frac{\partial T(x, t_{n})}{\partial t_{n}} = \frac{q \alpha e^{\frac{-x^{2}}{4\alpha t_{n}}}}{\sqrt{\pi \alpha t_{n}}}
+    \end{split}
+    \label{eq:df(x)}
+\end{eqnarray}
+
+Logo aplicando a Equação~\ref{eq:f(x)} e a Equação~\ref{eq:df(x)} no método da Equação~\ref{eq:newr} teremos:
+
+\begin{eqnarray}
+    \begin{split}
+        t_{n+1} = t_{n} - \left( \frac{T_{i} - T_{f} - qx.erfc \left( \frac{x}{2\sqrt{\alpha t_{n}}} \right) }{\frac{q \alpha e^{\frac{-x^{2}}{4\alpha t_{n}}}}{\sqrt{\pi \alpha t_{n}}}} + 2t_{n}  \right)
+    \end{split}
+    \label{eq:newrf}
+\end{eqnarray}
 
 \subsection*{Questão 6}
 \label{sec:p2q6}
