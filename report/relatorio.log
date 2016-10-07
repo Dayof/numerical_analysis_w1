@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.10)  7 OCT 2016 00:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.10)  7 OCT 2016 00:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -909,10 +909,10 @@ Package babel Info: Redefining portuges shorthand "|
 Package amsmath Warning: Cannot use `split' here;
 (amsmath)                trying to recover with `aligned' on input line 136.
 
-<../graficos/p1q2g1.png, id=46, 451.6875pt x 301.125pt>
-File: ../graficos/p1q2g1.png Graphic file (type png)
- <use ../graficos/p1q2g1.png>
-Package pdftex.def Info: ../graficos/p1q2g1.png used on input line 147.
+<../parte1/graficos/p1q2g1.png, id=46, 451.6875pt x 301.125pt>
+File: ../parte1/graficos/p1q2g1.png Graphic file (type png)
+ <use ../parte1/graficos/p1q2g1.png>
+Package pdftex.def Info: ../parte1/graficos/p1q2g1.png used on input line 147.
 (pdftex.def)             Requested size: 426.79135pt x 284.54623pt.
 LaTeX Font Info:    Try loading font information for OT1+phv on input line 148.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/ot1phv.fd
@@ -927,10 +927,10 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 151.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 151.
- [3] <../graficos/p1q2g2.png, id=54, 451.6875pt x 301.125pt>
-File: ../graficos/p1q2g2.png Graphic file (type png)
- <use ../graficos/p1q2g2.png>
-Package pdftex.def Info: ../graficos/p1q2g2.png used on input line 154.
+ [3] <../parte1/graficos/p1q2g2.png, id=54, 451.6875pt x 301.125pt>
+File: ../parte1/graficos/p1q2g2.png Graphic file (type png)
+ <use ../parte1/graficos/p1q2g2.png>
+Package pdftex.def Info: ../parte1/graficos/p1q2g2.png used on input line 154.
 (pdftex.def)             Requested size: 426.79135pt x 284.54623pt.
 
 Underfull \vbox (badness 4229) has occurred while \output is active []
@@ -939,17 +939,17 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 162.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 162.
- [4 <../graficos/p1q2g1.png> <../graficos/p1q2g2.png>]
+ [4 <../parte1/graficos/p1q2g1.png> <../parte1/graficos/p1q2g2.png>]
 
 Package hyperref Warning: Suppressing empty link on input line 166.
 
 
 Package hyperref Warning: Suppressing empty link on input line 166.
 
-<../graficos/p1q3.png, id=66, 451.6875pt x 301.125pt>
-File: ../graficos/p1q3.png Graphic file (type png)
- <use ../graficos/p1q3.png>
-Package pdftex.def Info: ../graficos/p1q3.png used on input line 170.
+<../parte1/graficos/p1q3.png, id=66, 451.6875pt x 301.125pt>
+File: ../parte1/graficos/p1q3.png Graphic file (type png)
+ <use ../parte1/graficos/p1q3.png>
+Package pdftex.def Info: ../parte1/graficos/p1q3.png used on input line 170.
 (pdftex.def)             Requested size: 426.79135pt x 284.54623pt.
 
 
@@ -964,10 +964,10 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 181.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 181.
-[5 <../graficos/p1q3.png>] <../graficos/p1q4.png, id=74, 451.6875pt x 301.125pt>
-File: ../graficos/p1q4.png Graphic file (type png)
- <use ../graficos/p1q4.png>
-Package pdftex.def Info: ../graficos/p1q4.png used on input line 186.
+[5 <../parte1/graficos/p1q3.png>] <../parte1/graficos/p1q4.png, id=74, 451.6875pt x 301.125pt>
+File: ../parte1/graficos/p1q4.png Graphic file (type png)
+ <use ../parte1/graficos/p1q4.png>
+Package pdftex.def Info: ../parte1/graficos/p1q4.png used on input line 186.
 (pdftex.def)             Requested size: 426.79135pt x 284.54623pt.
 
 Underfull \vbox (badness 1584) has occurred while \output is active []
@@ -976,7 +976,7 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 199.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 199.
- [6 <../graficos/p1q4.png>]
+ [6 <../parte1/graficos/p1q4.png>]
 
 Package amsmath Warning: Cannot use `split' here;
 (amsmath)                trying to recover with `aligned' on input line 242.
@@ -1022,8 +1022,8 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 291.
  ) 
 Here is how much of TeX's memory you used:
  19473 strings out of 493089
- 349582 string characters out of 6134841
- 432245 words of memory out of 5000000
+ 349701 string characters out of 6134841
+ 432252 words of memory out of 5000000
  22537 multiletter control sequences out of 15000+600000
  26751 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
