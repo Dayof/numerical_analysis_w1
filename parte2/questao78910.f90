@@ -1,10 +1,10 @@
-program questao789
+program questao78910
 
     implicit none
 
-    real, parameter :: Ti=10, Tf=50
+    real, parameter :: Tf=50
     real, parameter :: PI=3.14159265359, e=2.71828182846
-    real :: x=1, q=1, a=1
+    real :: x=1, q=1, a=1, Ti=10
     real :: answer, next, total=0
 
     ! answer = last calculated fix point
@@ -20,8 +20,9 @@ program questao789
     open(unit=8, file="data/questao8.dat", status="unknown", action="write")
     open(unit=91, file="data/questao9.1.dat", status="unknown", action="write")
     open(unit=92, file="data/questao9.2.dat", status="unknown", action="write")
+    open(unit=925, file="data/questao10.dat", status="unknown", action="write")
 
-    write(*,*) "Qual constante deve ser variada? [x, a, q, none]"
+    write(*,*) "Qual constante deve ser variada? [t, x, a, q, none(n)]"
     read(*,*) mode
 
     do i=1, 10
@@ -35,6 +36,9 @@ program questao789
         elseif ( mode.eq.'q' ) then ! relevant to question 9
             q = i*1.0
             fileunit = 91
+        elseif ( mode.eq.'t' ) then ! relevant to question 9
+            Ti = i*25
+            fileunit = 925
         else
             mode = 'n' ! relevant to question 7
             fileunit = 7
@@ -62,6 +66,7 @@ program questao789
     close(unit=8)
     close(unit=91)
     close(unit=92)
+    close(unit=925)
 
 contains
 
@@ -112,4 +117,4 @@ contains
         return
     end subroutine bissect
 
-end program questao789
+end program questao78910
