@@ -1,14 +1,42 @@
+reset
+
 set key default
 set key box
 set key ins vert
 set key right bottom
 
 set terminal png size 600, 400
-set output 'p2q6.png'
+set output 'p2q6g1.png'
 
 set title "n versus t_{n}" font "Helvetica,20" norotate
 set xlabel "n" font "Helvetica,15"
 set ylabel "t_{n}" font "Helvetica, 15" norotate
-set style line 1 lc rgb "blue"
+set style line 1 lc rgb '#0060ad' lt 1 lw 2 pt 7 pi -1 ps 1.5
+set pointintervalbox 3
 
-plot '../data/questao6.dat' using 1:2 with lines ls 1 title 't na n-ésima interação'
+plot '../data/questao6.dat' using 1:2 with linespoints ls 1 title 't na n-ésima iteração'
+
+reset
+
+file1 = '../data/questao6.1.dat'
+
+set key default
+set key box
+
+set terminal png size 600, 400
+set output 'p2q6g2.png'
+
+set title "Número de iterações versus t_{0}" font "Helvetica,20" norotate
+set xlabel "n" font "Helvetica,15"
+set ylabel "t_{0}" font "Helvetica, 15" norotate
+
+set yrange[100:1000]
+set ytics(100, 200, 300, 400, 500, 1000)
+set xtics("6" 5, "5" 6)
+
+set boxwidth 0.4 absolute
+set style fill transparent solid 0.8 noborder
+
+set style line 1 lc rgbcolor "blue" lt 1
+
+plot file1 using 1:2 with boxes title 'Iterações a cada t_{0}' ls 1
