@@ -9,6 +9,7 @@ set output 'p2q91.png'
 set title "q versus t(q)" font "Helvetica,20" norotate
 set xlabel "q" font "Helvetica,15"
 set ylabel "t(q)" font "Helvetica, 15"
-set style line 1 lc rgb "blue"
+set style line 1 lc rgb '#0060ad' lt 1 lw 2 pt 7 pi -1 ps 1.5
+set pointintervalbox 3
 
-plot '../data/questao9.1.dat' using 1:2 with lines ls 1 title 'Variação de t com q'
+plot '../data/questao9.1.dat' using 1:2 with linespoints ls 1 title 'Variação de t com q'
